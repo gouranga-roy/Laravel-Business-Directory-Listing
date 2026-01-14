@@ -1,0 +1,278 @@
+/*
+ Template Name: Onlinedu
+ Template URI: https://
+ Author: ThemeWar
+ Author URI: https://
+ Description: Onlinedu Dashboard
+ Version: 2.0.0
+ License:
+ License URI:
+*/
+@media all and (max-width: 1440px) {
+    .table-responsive {
+        overflow-x: auto;
+    }
+}
+
+@media all and (max-width: 1365px) {
+    .main-header .search-bar {
+        flex: 0 0 300px;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: 20px;
+    }
+}
+
+@media all and (max-width: 1199px) {
+    .main-header .search-bar {
+        flex: 0 0 230px;
+        max-width: 220px;
+    }
+}
+
+@media all and (max-width: 1024px) {
+    .sidebar {
+        position: fixed;
+        left: -256px;
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+    .sidebar-wrapper,
+    .sidebar-wrapper.open {
+        width: auto;
+        flex: 0 0 auto;
+    }
+    .page-content {
+        padding: 0 16px;
+    }
+
+    .sidebar-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .sidebar.sidebar_small {
+        left: 0;
+        top: 60px;
+        width: 256px;
+    }
+    .page-wrapper {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 76px 0 24px;
+    }
+
+    .sidebar.sidebar_small .sidebar-header a .logo-lg {
+        width: auto;
+    }
+
+    .sidebar.sidebar_small .sidebar-header a .logo-sm {
+        width: 0;
+    }
+
+    .sidebar.sidebar_small .sidebar-header {
+        text-align: left;
+    }
+
+    .sidebar.sidebar_small .navbar-content {
+        text-align: left;
+    }
+
+    .sidebar.sidebar_small .navbar-content nav>ul>li.subMenu_dropdown>a .menu-icon {
+        display: block;
+    }
+
+    .sidebar.sidebar_small .navbar-content ul li>.sub-menu {
+        position: relative;
+        min-width: 200px;
+        height: auto;
+        border-radius: 12px;
+        top: 10px;
+        left: 0;
+        background: var(--white-color);
+        box-shadow: 0px 16px 30px 0px #0E0F141F;
+        padding: 12px;
+        margin-bottom: 20px;
+    }
+    .sidebar.sidebar_small .navbar-content ul li.sub-menu-title {
+        display: none;
+    }
+
+    .sidebar~.main-content {
+        margin-left: 0;
+    }
+
+    .sidebar_toggle.top-6 {
+        top: -2px !important;
+    }
+
+    .sidebar_toggle.stbar2 {
+        display: inline-flex !important;
+    }
+
+    .main-header {
+        padding: 10px 12px;
+        left: 0 !important;
+    }
+
+    .sidebar~.main-header {
+        left: 0;
+    }
+
+    .sidebar_toggle {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 30px;
+        height: 30px;
+    }
+    .sidebar_toggle img {
+        display: none;
+    }
+    .sidebar_toggle::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 8px;
+        width: 15px;
+        height: 2px;
+        background: #444;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0px 5px 0 #444;
+    }
+    .sidebar_toggle::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 8px;
+        width: 15px;
+        height: 2px;
+        background: #444;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+    }
+    .sidebar_toggle.active {
+        transform: rotate(0);
+    }
+
+    .chart-control .chart-mark {
+        gap: 10px;
+    }
+
+    .sidebar.sidebar_small~.main-header {
+        left: 0;
+    }
+
+    .fs-32 {
+        font-size: 24px !important;
+    }
+
+}
+
+@media all and (max-width: 991px) {}
+
+@media all and (max-width: 767px) {
+    .main-header .search-bar {
+        display: none;
+    }
+
+    .message-sidebar {
+        padding-right: 16px;
+    }
+
+    .message-box {
+        border-left: 0;
+    }
+
+    .pagin-action-items .selected-item {
+        padding: 10px 10px;
+    }
+
+    .pagin-action-items .export {
+        padding: 8px 10px;
+    }
+
+    .section-box-wraper {
+        flex-direction: column;
+    }
+
+    .section-menu {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .section-content {
+        flex: 0 0 calc(100%);
+        max-width: calc(100%);
+    }
+
+    .action-buttons a {
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        border: 1px solid #E8E8E9;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .action-buttons a span:last-child {
+        display: none;
+    }
+    .secContent02 {
+        top: 0;
+        border-left: 0;
+        height: 100%;
+        margin-top: 20px;
+    }
+    .secContent02 .inner-nav-tabs {
+        border: 0;
+        row-gap: 10px;
+    }
+    .secContent02 .tab-content {
+        padding-left: 0;
+    }
+}
+
+@media all and (max-width: 575px) {
+    .page-path {
+        display: none;
+    }
+
+    .page-link {
+        font-size: 12px;
+        font-weight: 400;
+    }
+    .inner-nav-tabs .action-play {
+        margin-left: 0;
+    }
+}
+
+@media all and (max-width: 480px) {
+    .main-content {
+        padding: 110px 16px 24px;
+    }
+
+    .main-header .actions .nice-control {
+        display: none;
+    }
+
+    .footer-action {
+        justify-content: flex-start;
+        flex: 0 0 auto;
+        margin-top: 20px;
+    }
+
+   .main-header .access-actions .dropdown {
+        display: none;
+    }
+
+    .action-view {
+        display: none;
+    }
+}
