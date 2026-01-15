@@ -12,7 +12,7 @@ class TypeController extends Controller
     // Type View
     public function index()
     {
-        $page_data = Type::get();
+        $page_data['list_type'] = Type::get();
 
         return view('admin::custom-type.index', $page_data);
     }
@@ -20,7 +20,7 @@ class TypeController extends Controller
     // Type Store
     public function store(Request $request)
     {
-        // Filed Validation
+        // Form Validation
         $validation = $request->validate([
             'name'   => 'required|string|max:100',
             'logo'   => 'nullable|image|mimes:' . allowedFileExt() . '|max:1024',
@@ -40,12 +40,50 @@ class TypeController extends Controller
         // Store Data
         Type::create([
             'name'   => $validation['name'],
-            'logo'   => $validation['logo'],
-            'image'  => $validation['image'],
+            'logo'   => $validation['logo'] ?? null,
+            'image'  => $validation['image'] ?? null,
             'status' => $validation['status'],
         ]);
 
-        return redirect()->back()->with('success', 'Type created successfully');
+        return goBack('success', 'Type created successfully');
 
+    }
+
+    // Type Update
+    public function update(Request $request, $id)
+    {
+        // Form Validation
+        $validation = $request->validate([
+            'name'   => 'required|string|max:100',
+            'logo'   => 'nullable|image|mimes:' . allowedFileExt() . '|max:1024',
+            'image'  => 'nullable|image|mimes:' . allowedFileExt() . '|max:1024',
+            'status' => 'required|boolean',
+        ]);
+
+        remove_file();
+
+        // Upload Photo
+        if ($request->hasFile('logo')) {
+            $validation['logo'] = FileUploader::upload($request->file('logo'), 'type');
+        }
+
+        if ($request->hasFile('image')) {
+            $validation['image'] = FileUploader::upload($request->file('image'), 'type');
+        }
+
+        // Update Data
+        $listType = Type::findOrFail($id);
+        $listType->update($validation);
+
+        return goBack('success', 'Data Update successfully');
+    }
+
+    // Delete Data
+    public function delete($id)
+    {
+        $listType = Type::findOrFail($id);
+        $listType->delete();
+
+        return goBack('success', 'List Type deleted successfully.');
     }
 }

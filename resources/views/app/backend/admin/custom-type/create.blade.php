@@ -9,6 +9,7 @@
     </x-select>
 
     <button type="submit" class="btn btn-dark rounded-6">{{ translate('Create') }}</button>
+
 </form>
 
 @include('core::modal')

@@ -84,8 +84,8 @@ if (! function_exists('getImage')) {
             return asset('assets/global/images/avatar.jpg');
         }
 
-        if (file_exists(public_path($path))) {
-            return asset($path);
+        if (file_exists(public_path("storage/{$path}"))) {
+            return asset('storage/' . $path);
         }
 
         return asset('assets/global/images/default.png');
@@ -108,6 +108,25 @@ if (! function_exists('uploadImage')) {
 
         // Return path
         return $folder . '/' . $name;
+    }
+}
+
+if (! function_exists('remove_file')) {
+    function remove_file($url = null)
+    {
+        $url       = public_path($url);
+        $url       = str_replace('optimized/', '', $url);
+        $url_arr   = explode('/', $url);
+        $file_name = $url_arr[count($url_arr) - 1];
+
+        if (is_file($url) && file_exists($url) && ! empty($file_name)) {
+            unlink($url);
+
+            $url = str_replace($file_name, 'optimized/' . $file_name, $url);
+            if (is_file($url) && file_exists($url)) {
+                unlink($url);
+            }
+        }
     }
 }
 

@@ -3680,14 +3680,14 @@ span[class="fi-rr-"]:before {
     justify-content: space-between;
 }
 .type-status .status {
-    background: var(--primary-color);
+    background: var(--body-color);
     color: var(--white-color);
     font-size: 12px;
     border-radius: 40px;
     padding: 4px 8px;
 }
-.type-status .status.inactive {
-    background: var(--body-color);
+.type-status .status.active {
+    background: var(--primary-color);
 }
 .type-status .dropdown-toggle {
     border: 0 !important;
@@ -3697,7 +3697,17 @@ span[class="fi-rr-"]:before {
 .type-status .dropdown-toggle::after {
     display: none !important;
 }
+.type-status .dropdown-toggle svg  {
+    width: 26px !important;
+    height: 26px !important;
+}
 
+/* Size */
+.size-80 {
+    max-width: 80px;
+    width: 100%;
+    object-fit: cover;
+}
 
 /* -- Toaster -- */
 .toast-container {
