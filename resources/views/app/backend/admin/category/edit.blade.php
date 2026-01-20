@@ -1,7 +1,7 @@
 @php
-    $type = App\Models\Type::firstWhere('slug', $slug);
+    $type = App\Models\Type::findOrFail($id);
 @endphp
-<form action="{{ route('type.update', $type->slug) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('type.update', $type->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <x-input type="text" label="{{ translate('Name') }}" name="name" class="mb-3" data-value="{{ $type->name }}" required />

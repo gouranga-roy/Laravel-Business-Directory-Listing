@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Type extends Model
 {
-    protected $fillable = ['name', 'logo', 'image', 'status'];
+    protected $fillable = ['name', 'slug', 'logo', 'image', 'status'];
+
+    public $hasFile = ['logo', 'image'];
 }

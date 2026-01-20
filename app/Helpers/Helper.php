@@ -114,7 +114,7 @@ if (! function_exists('uploadImage')) {
 if (! function_exists('remove_file')) {
     function remove_file($url = null)
     {
-        $url       = public_path($url);
+        $url       = public_path('storage/' . $url);
         $url       = str_replace('optimized/', '', $url);
         $url_arr   = explode('/', $url);
         $file_name = $url_arr[count($url_arr) - 1];

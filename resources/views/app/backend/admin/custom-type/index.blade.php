@@ -18,8 +18,8 @@
                         @endif
 
                         <x-dropdown>
-                            <x-drop-modal :title="translate('Edit')" :url="path(['backend::admin.custom-type.edit', 'id' => $type->id])" />
-                            <x-drop-delete :title="translate('Delete')" :url="route('type.delete', $type->id)" />
+                            <x-drop-modal :title="translate('Edit')" :url="path(['backend::admin.custom-type.edit', 'slug' => $type->slug])" />
+                            <x-drop-delete :title="translate('Delete')" :url="route('type.delete', $type->slug)" />
                         </x-dropdown>
                     </div>
                     <img src="{{ getImage($type->image) }}" alt="">

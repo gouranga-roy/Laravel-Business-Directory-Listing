@@ -12,7 +12,7 @@ class TypeController extends Controller
     // Type View
     public function index()
     {
-        $page_data['list_type'] = Type::get();
+        $page_data['list_type'] = Type::latest()->get();
 
         return view('admin::custom-type.index', $page_data);
     }
@@ -20,15 +20,15 @@ class TypeController extends Controller
     // Type Store
     public function store(Request $request)
     {
-        // Form Validation
+        request()->merge(['slug' => slugify($request->name)]);
         $validation = $request->validate([
             'name'   => 'required|string|max:100',
+            'slug'   => 'required|string|max:100|unique:types,slug',
             'logo'   => 'nullable|image|mimes:' . allowedFileExt() . '|max:1024',
             'image'  => 'nullable|image|mimes:' . allowedFileExt() . '|max:1024',
             'status' => 'required|boolean',
         ]);
 
-        // Upload Photo
         if ($request->hasFile('logo')) {
             $validation['logo'] = FileUploader::upload($request->file('logo'), 'type');
         }
@@ -37,53 +37,44 @@ class TypeController extends Controller
             $validation['image'] = FileUploader::upload($request->file('image'), 'type');
         }
 
-        // Store Data
-        Type::create([
-            'name'   => $validation['name'],
-            'logo'   => $validation['logo'] ?? null,
-            'image'  => $validation['image'] ?? null,
-            'status' => $validation['status'],
-        ]);
+        Type::create($validation);
 
         return goBack('success', 'Type created successfully');
 
     }
 
     // Type Update
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        // Form Validation
+        request()->merge(['slug' => slugify($request->name)]);
+
+        $listType = Type::firstWhere('slug', $slug);
+
         $validation = $request->validate([
             'name'   => 'required|string|max:100',
+            'slug'   => 'required|string|max:100|unique:types,slug,' . $listType->id,
             'logo'   => 'nullable|image|mimes:' . allowedFileExt() . '|max:1024',
             'image'  => 'nullable|image|mimes:' . allowedFileExt() . '|max:1024',
             'status' => 'required|boolean',
         ]);
 
-        remove_file();
-
-        // Upload Photo
         if ($request->hasFile('logo')) {
             $validation['logo'] = FileUploader::upload($request->file('logo'), 'type');
         }
-
         if ($request->hasFile('image')) {
             $validation['image'] = FileUploader::upload($request->file('image'), 'type');
         }
 
-        // Update Data
-        $listType = Type::findOrFail($id);
         $listType->update($validation);
-
         return goBack('success', 'Data Update successfully');
     }
 
     // Delete Data
-    public function delete($id)
+    public function delete($slug)
     {
-        $listType = Type::findOrFail($id);
+        $listType = Type::firstWhere('slug', $slug);
         $listType->delete();
 
-        return goBack('success', 'List Type deleted successfully.');
+        return goBack('success', 'Type deleted successfully.');
     }
 }

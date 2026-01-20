@@ -18,8 +18,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::controller(TypeController::class)->group(function () {
         Route::get('type', 'index')->name('type');
         Route::post('type/store', 'store')->name('type.store');
-        Route::put('type/{id}/update', 'update')->name('type.update');
-        Route::delete('type/{id}/delete', 'delete')->name('type.delete');
+        Route::put('type/{slug}/update', 'update')->name('type.update');
+        Route::delete('type/{slug}/delete', 'delete')->name('type.delete');
     });
 
     // Category Controller
