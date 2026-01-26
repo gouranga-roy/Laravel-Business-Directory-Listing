@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('types', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+            $table->string("slug")->unique();
             $table->string("logo")->nullable();
             $table->string("image")->nullable();
             $table->enum('status', ['1', '0'])->default('1');

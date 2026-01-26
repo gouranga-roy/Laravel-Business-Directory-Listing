@@ -3,6 +3,7 @@
 @section('loadCssFiles')
     <link href="{{ asset('assets/backend/css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/backend/css/bootstrap-slider.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/backend/icon-picker/fontawesome-iconpicker.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/backend/css/fontawesome.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/backend/css/nice-select.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/backend/css/select2.min.css') }}" rel="stylesheet" />
@@ -46,6 +47,7 @@
     <script src="{{ asset('assets/backend/js/select2.min.js') }}"></script>
     <script src="{{ asset('assets/backend/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/backend/js/bootstrap-slider.min.js') }}"></script>
+    <script src="{{ asset('assets/backend/icon-picker/fontawesome-iconpicker.min.js') }}"></script>
     <script src="{{ asset('assets/backend/js/choices.min.js') }}"></script>
     <script src="{{ asset('assets/backend/js/summernote-lite.min.js') }}"></script>
     <script src="{{ asset('assets/backend/js/apexcharts.min.js') }}"></script>

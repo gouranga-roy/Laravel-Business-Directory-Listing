@@ -28,6 +28,7 @@
     var $customSelectTo = $('.custom-selectTo');
     var $summernote = $('.summernote');
     var $editor = $('.editor');
+    var $iconPicker = $('.icon-picker');
 
     // Nice Select
     if ($niceSelect.length > 0) {

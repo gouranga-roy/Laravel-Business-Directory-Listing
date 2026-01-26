@@ -24,7 +24,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     // Category Controller
     Route::controller(CategoryController::class)->group(function () {
-        Route::get('category', 'category')->name('category');
+        Route::get('category/{slug?}', 'category')->name('category');
+        Route::post('category/store', 'store')->name('category.store');
+        Route::put('category/{slug}/update', 'update')->name('category.update');
+        Route::delete('category/{slug}/delete', 'delete')->name('category.delete');
     });
 
 });

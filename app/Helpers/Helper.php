@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use App\Models\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -165,5 +166,13 @@ if (! function_exists('goBack')) {
     {
         $redirect = $route ? redirect($route) : redirect()->back();
         return $redirect->with($status, $message);
+    }
+}
+
+if (! function_exists('categoryCount')) {
+    function categoryCount($type_id)
+    {
+        $count = Category::where('type_id', $type_id)->where('parent_id', 0)->count();
+        return $count;
     }
 }

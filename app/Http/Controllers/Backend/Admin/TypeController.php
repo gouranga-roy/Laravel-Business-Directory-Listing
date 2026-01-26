@@ -21,6 +21,7 @@ class TypeController extends Controller
     public function store(Request $request)
     {
         request()->merge(['slug' => slugify($request->name)]);
+
         $validation = $request->validate([
             'name'   => 'required|string|max:100',
             'slug'   => 'required|string|max:100|unique:types,slug',
