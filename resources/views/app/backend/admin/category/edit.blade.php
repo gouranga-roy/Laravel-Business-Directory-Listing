@@ -41,11 +41,13 @@
 
 
 <script type="text/javascript">
-    "Use strict";
-
     $(function() {
-        if ($('.icon-picker').length) {
-            $('.icon-picker').iconpicker();
+        "Use strict";
+
+        if ($('.icon-picker').length > 0) {
+            $('.icon-picker').each(function() {
+                $(this).iconpicker();
+            });
         }
     });
 

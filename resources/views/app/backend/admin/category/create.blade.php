@@ -19,7 +19,7 @@
     @endif
     <x-input type="text" label="{{ translate('Pick Your Icon') }}" name="icon" id="icon-picker" class="icon-picker" />
     <x-input type="file" label="{{ translate('Image') }}" name="image" id="catImage" class="photo-upload-file" hidden />
-    <div class="mb-3">
+    <div class="mb-3 catImgWrap">
         <label for="catImage" class="preview-label mt-1">
             <span>
                 <i class="fa-solid fa-arrow-up-from-bracket"></i>
@@ -45,6 +45,21 @@
             $('.icon-picker').iconpicker();
         }
     });
+
+    // Check Changes Parent
+    $(document).on('change', '#parent_id', function() {
+        let changeVal = $(this).val();
+
+        if (changeVal != 0) {
+            $(".catImgWrap").hide();
+            $(".photo-upload-file").hide();
+        } else {
+            $(".catImgWrap").show();
+            $(".photo-upload-file").show();
+        }
+    });
+
+
 
     // File upload and preview
     const input = document.getElementById('catImage');

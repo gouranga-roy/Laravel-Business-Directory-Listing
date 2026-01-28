@@ -28,6 +28,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::post('category/store', 'store')->name('category.store');
         Route::put('category/{slug}/update', 'update')->name('category.update');
         Route::delete('category/{slug}/delete', 'delete')->name('category.delete');
+
+        Route::post('category/subcategory/store', 'subCategoryStore')->name('category.subStore');
+        Route::put('category/{slug}/sub-update', 'subCategoryUpdate')->name('category.subUpdate');
+        Route::delete('category/{slug}/delete', 'subCategoryDelete')->name('category.subDelete');
     });
 
 });

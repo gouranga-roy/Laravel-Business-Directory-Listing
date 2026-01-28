@@ -3445,10 +3445,10 @@ span[class="fi-rr-"]:before {
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2px 0;
+    padding: 4px 0;
     margin: 0 0 2px;
     font-weight: 500;
-    padding-left: 34px;
+    padding-left: 8px;
     position: relative;
     width: 100%;
     border-radius: 4px;
@@ -3463,23 +3463,10 @@ span[class="fi-rr-"]:before {
     border-bottom: 0;
 }
 
-.subCategory>ul>li::after {
-    content: '';
-    position: absolute;
-    left: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 6px;
-    height: 6px;
-    background: #e4e8ff;
-    border-radius: 50%;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition: all 350ms ease;
-}
-
-.subCategory>ul>li:hover::after {
-    background: var(--primary-color);
-    transform: scale(1.1);
+.subCategory>ul>li span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .subCategory ul li .dropdown-toggle {

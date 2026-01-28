@@ -69,4 +69,51 @@ class CategoryController extends Controller
 
         return goBack('success', 'Category deleted successfully!');
     }
+
+    // Sub Category
+    public function subCategoryStore(Request $request)
+    {
+        $request->merge(['slug' => slugify($request->title)]);
+
+        $validation = $request->validate([
+            'title'       => 'required|string|max:100',
+            'slug'        => 'required|string|max:100|unique:categories,slug',
+            'icon'        => 'nullable|string|max:100',
+            'type_id'     => 'required|integer',
+            'category_id' => 'required|integer',
+        ]);
+
+        $validation['parent_id'] = $request->category_id;
+
+        Category::create($validation);
+
+        return goBack('success', 'Sub category created successfully!');
+
+    }
+
+    public function subCategoryUpdate(Request $request)
+    {
+        $request->merge(['slug' => slugify($request->title)]);
+
+        $subCategory = Category::firstWhere('id', $request->category_id);
+
+        $validation = $request->validate([
+            'title' => 'required|string|max:100',
+            'slug'  => 'required|string|max:100|unique:categories,slug,' . $subCategory->id,
+            'icon'  => 'nullable|string|max:100',
+        ]);
+
+        $subCategory->update($validation);
+
+        return goBack('success', 'Sub category updated successfully1');
+    }
+
+    public function subCategoryDelete($slug)
+    {
+        $subCategory = Category::firstWhere('slug', $slug);
+
+        $subCategory->delete();
+
+        return goBack('success', 'Sub category successfully!');
+    }
 }

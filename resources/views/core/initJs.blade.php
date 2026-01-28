@@ -13,7 +13,6 @@
             });
         }
 
-
         if ($(".owl-carousel").length > 0) {
             $(".owl-carousel").each(function() {
                 $(this).owlCarousel({
@@ -110,6 +109,8 @@
 
 
     $(function() {
+        "Use strict";
+
         // Date range picker
         if ($('.daterangepicker:not(.initJs)').length) {
             $('.daterangepicker:not(.initJs)').daterangepicker();
