@@ -13,7 +13,7 @@
                 <nav>
                     <ul>
                         <li class="caption">
-                            <label>Main</label>
+                            <label>{{ translate('Main') }}</label>
                         </li>
                         <li class="active">
                             <a href="#">
@@ -25,7 +25,7 @@
                                         <path d="M11.5 12.417L11.5771 12.4209C11.9551 12.4595 12.25 12.7788 12.25 13.167C12.2498 13.555 11.955 13.8745 11.5771 13.9131L11.5 13.917H6.5C6.0859 13.917 5.75018 13.5811 5.75 13.167C5.75 12.7528 6.08579 12.417 6.5 12.417H11.5Z" fill="#7A7C83" />
                                     </svg>
                                 </span>
-                                <span class="text">Dashboard</span>
+                                <span class="text">{{ translate('Dashboard') }}</span>
                             </a>
                         </li>
                         <li class="subMenu_dropdown">
@@ -40,7 +40,7 @@
                                             stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </span>
-                                <span class="text">My Courses</span>
+                                <span class="text">{{ translate('Directory Listing') }}</span>
                                 <span class="menu-icon">
                                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M2.625 8.75L7 4.375L11.375 8.75" stroke="#7A7C83" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -64,20 +64,32 @@
                                         <li><a href="#">Shoes</a></li>
                                     </ul>
                                 </li>
+                            </ul>
+                        </li>
+                        <li class="subMenu_dropdown">
+                            <a href="#">
+                                <span>
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.66663 0.666748V3.16675" stroke="#7A7C83" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M12.3334 0.666748V3.16675" stroke="#7A7C83" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M4.83337 9.83325H11.5" stroke="#7A7C83" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M4.83337 13.1667H9.00004" stroke="#7A7C83" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M12.3333 1.91675C15.1083 2.06675 16.5 3.12508 16.5 7.04175V12.1917C16.5 15.6251 15.6667 17.3417 11.5 17.3417H6.5C2.33333 17.3417 1.5 15.6251 1.5 12.1917V7.04175C1.5 3.12508 2.89167 2.07508 5.66667 1.91675H12.3333Z" stroke="#7A7C83"
+                                            stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                                <span class="text">{{ translate('Directory Type') }}</span>
+                                <span class="menu-icon">
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2.625 8.75L7 4.375L11.375 8.75" stroke="#7A7C83" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                            </a>
+                            <ul class="sub-menu">
                                 <li class="subMenu_dropdown">
                                     <a href="#">
-                                        Categories
-                                        <span class="menu-icon">
-                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M2.625 8.75L7 4.375L11.375 8.75" stroke="#7A7C83" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                        </span>
+                                        Manage Directory
                                     </a>
-                                    <ul class="sub-menu">
-                                        <li><a href="#">Dress</a></li>
-                                        <li><a href="#">Trimmer</a></li>
-                                        <li><a href="#">Shoes</a></li>
-                                    </ul>
                                 </li>
                             </ul>
                         </li>

@@ -18,17 +18,17 @@
 
 <script>
     $(document).ready(function() {
-        $('.image-upload-area, .file-upload-btn').click(function() {
-            var fileInput = $(this).siblings('input[type="file"]');
-            if (fileInput.length) {
-                fileInput.click();
-            }
+        $('.image-upload-area').on('click', function() {
+            $(this)
+                .closest('.mb-3')
+                .find('input[type="file"]')
+                .trigger('click');
         });
 
-        $('.image-upload-area ~ input[type="file"]').on('change', function() {
-            loadImage($(this), $(this).data('previewer'));
+        $('input[type="file"]').on('change', function() {
+            const preview = $(this).data('preview');
+            loadImage(this, preview);
         });
-
 
         $(document).on('click', '[data-btn]', function() {
             let action = $(this).data('btn');

@@ -212,4 +212,20 @@
             $('.ajaxForm:not(.initialized)').addClass('initialized');
         }
     });
+
+    if ($('.icon-picker').length) {
+        $('.icon-picker').each(function() {
+            $(this).iconpicker();
+        });
+    }
+
+    if ($('.custom-selectTo').length > 0) {
+        $('.custom-selectTo').each(function() {
+            $(this).select2({
+                dropdownParent: $('#modal .modal-content'),
+                placeholder: "Select parent...",
+                allowClear: true
+            });
+        });
+    }
 </script>

@@ -13,7 +13,7 @@
     <div class="categories-wrapper">
         <div class="row mb-20">
             <div class="col-lg-6 col-md-6">
-                <h4 class="fs-20 text-secondary">Listing Type Categories</h4>
+                <h4 class="fs-20 text-secondary">{{ translate('Listing Type Categories') }}</h4>
             </div>
             <div class="col-lg-6 col-md-6 text-end">
                 <x-btn-modal :title="translate('Add Category')" :url="path(['admin::category.create', 'type_id' => $type_id])" />

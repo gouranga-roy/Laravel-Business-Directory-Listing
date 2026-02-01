@@ -122,11 +122,5 @@
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
         </div>
-        <select class="custom-selectTo" name="state">
-            <option value="">Add Course</option>
-            <option value="Course One">Course One</option>
-            <option value="Course Two">Course Two</option>
-            <option value="Course Three">Course Three</option>
-        </select>
     </div>
 </header>

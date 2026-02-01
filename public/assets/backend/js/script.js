@@ -63,7 +63,9 @@
     if ($customSelectTo.length > 0) {
         $customSelectTo.each(function () {
             $(this).select2({
-                dropdownParent: $('#modal .modal-content')
+                dropdownParent: $('#modal .modal-content'),
+                placeholder: "Select a state",
+                allowClear: true
             });
         });
     }

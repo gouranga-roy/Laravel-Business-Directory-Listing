@@ -24,11 +24,13 @@ class CategoryController extends Controller
         $validation = $request->validate([
             'title'     => 'required|string|max:100',
             'slug'      => 'required|string|max:100|unique:categories,slug',
-            'parent_id' => 'nullable',
+            'parent_id' => 'nullable|integer|min:0',
             'type_id'   => 'nullable',
             'icon'      => 'nullable|string|max:100',
             'image'     => 'nullable|image|mimes:' . allowedFileExt() . '|max:1024',
         ]);
+
+        $validation['parent_id'] = $validation['parent_id'] ?? 0;
 
         if ($request->hasFile('image')) {
             $validation['image'] = FileUploader::upload($request->file('image'), 'category');
@@ -36,7 +38,12 @@ class CategoryController extends Controller
 
         Category::create($validation);
 
-        return goBack('success', 'Category created successfully');
+        if ($validation['parent_id'] == 0) {
+            return goBack('success', 'Category created successfully');
+        } else {
+            return goBack('success', 'Sub category created successfully');
+        }
+
     }
 
     public function update(Request $request, $slug)
@@ -79,11 +86,16 @@ class CategoryController extends Controller
             'title'       => 'required|string|max:100',
             'slug'        => 'required|string|max:100|unique:categories,slug',
             'icon'        => 'nullable|string|max:100',
+            'image'       => 'nullable|image|mimes:' . allowedFileExt() . '|max:1024',
             'type_id'     => 'required|integer',
             'category_id' => 'required|integer',
         ]);
 
         $validation['parent_id'] = $request->category_id;
+
+        if ($request->hasFile('image')) {
+            $validation['image'] = FileUploader::upload($request->file('image'), 'category');
+        }
 
         Category::create($validation);
 
@@ -101,7 +113,12 @@ class CategoryController extends Controller
             'title' => 'required|string|max:100',
             'slug'  => 'required|string|max:100|unique:categories,slug,' . $subCategory->id,
             'icon'  => 'nullable|string|max:100',
+            'image' => 'nullable|image|mimes:' . allowedFileExt() . '|max:1024',
         ]);
+
+        if ($request->hasFile('image')) {
+            $validation['image'] = FileUploader::upload($request->file('image'), 'category');
+        }
 
         $subCategory->update($validation);
 
@@ -111,9 +128,8 @@ class CategoryController extends Controller
     public function subCategoryDelete($slug)
     {
         $subCategory = Category::firstWhere('slug', $slug);
-
         $subCategory->delete();
 
-        return goBack('success', 'Sub category successfully!');
+        return goBack('success', 'Sub category deleted successfully!');
     }
 }
