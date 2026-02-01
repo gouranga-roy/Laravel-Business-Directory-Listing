@@ -10,10 +10,11 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function category($slug = '')
+    public function index($slug = '')
     {
         $page_data['list_type'] = Type::get();
         $page_data['slug']      = $slug;
+
         return view('admin::category.index', $page_data);
     }
 

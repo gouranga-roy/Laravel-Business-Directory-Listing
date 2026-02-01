@@ -7,10 +7,12 @@
     </div>
 
     <div class="row">
+
         @foreach ($list_type as $type)
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                 <div class="type-box">
                     <div class="type-status">
+
                         @if ($type->status == 1)
                             <a class="status active" href="#">Active</a>
                         @else
@@ -28,5 +30,6 @@
                 </div>
             </div>
         @endforeach
+
     </div>
 @endsection

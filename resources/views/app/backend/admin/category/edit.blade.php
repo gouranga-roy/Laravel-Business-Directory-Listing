@@ -8,6 +8,8 @@
 <form action="{{ route('category.update', $slug) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
+
+
     <input type="hidden" name="type_id" value="{{ $query->first()->type_id }}">
     <x-input type="text" label="{{ translate('Name') }}" name="title" value="{{ $query->first()->title }}" class="mb-3" required />
     @if ($query->first()->parent_id == 0)

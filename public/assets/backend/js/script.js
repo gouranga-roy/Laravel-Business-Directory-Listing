@@ -200,7 +200,7 @@
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
     // Sidebar Dropdown Menu
-    $('.navbar-content li.subMenu_dropdown > a').on('click', function (e) {
+    $(document).on('click', '.navbar-content li.subMenu_dropdown > a', function (e) {
         e.preventDefault();
         e.stopPropagation();
 
@@ -218,8 +218,8 @@
         $submenu.stop(true, true).slideToggle();
         $this.toggleClass('active');
         $parentLi.toggleClass('childShow');
-
     });
+
 
     // Sidebar dropdown menu hover
     $('.sidebar.sidebar_small .navbar-content li.subMenu_dropdown').hover(
@@ -249,78 +249,17 @@
     );
 
 
-    $(document).on('click', function () {
-        $('.subMenu_dropdown').removeClass('childShow');
-        $('.subMenu_dropdown > ul').slideUp();
-        $('.subMenu_dropdown > a').removeClass('active');
-    });
+    // $(document).on('click', function () {
+    //     $('.subMenu_dropdown').removeClass('childShow');
+    //     $('.subMenu_dropdown > ul').slideUp();
+    //     $('.subMenu_dropdown > a').removeClass('active');
+    // });
 
     $('.subMenu_dropdown ul').on('click', function (e) {
         e.stopPropagation();
     });
 
-
     // Scrollbar
-    // new SimpleBar(document.getElementById('navbar'), { autoHide: true });
-
-    // Range Slider
-    // var slider = new Slider('#range1', {
-    //     id: 'range',
-    //     tooltip: 'always',
-    //     min: 0,
-    //     max: 100,
-    //     value: 40,
-    //     formatter: function (value) {
-    //         if (Array.isArray(value)) {
-    //             return value[0] + '% - ' + value[1] + '%';
-    //         }
-    //         return value + '%';
-    //     }
-    // });
-
-    // var slider = new Slider('#range2', {
-    //     id: 'range',
-    //     tooltip: 'always',
-    //     min: 0,
-    //     max: 100,
-    //     value: 65,
-    //     formatter: function (value) {
-    //         if (Array.isArray(value)) {
-    //             return value[0] + '% - ' + value[1] + '%';
-    //         }
-    //         return value + '%';
-    //     }
-    // });
-
-    // var slider = new Slider('#range3', {
-    //     id: 'range',
-    //     tooltip: 'always',
-    //     min: 0,
-    //     max: 100,
-    //     value: 20,
-    //     formatter: function (value) {
-    //         if (Array.isArray(value)) {
-    //             return value[0] + '% - ' + value[1] + '%';
-    //         }
-    //         return value + '%';
-    //     }
-    // });
-
-    // var slider = new Slider('#range4', {
-    //     id: 'range',
-    //     tooltip: 'always',
-    //     min: 0,
-    //     max: 100,
-    //     value: 32,
-    //     formatter: function (value) {
-    //         if (Array.isArray(value)) {
-    //             return value[0] + '% - ' + value[1] + '%';
-    //         }
-    //         return value + '%';
-    //     }
-    // });
-
-
     function initSlider(selector, value) {
         if (!$(selector).length) return;
 

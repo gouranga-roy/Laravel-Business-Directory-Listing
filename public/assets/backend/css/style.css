@@ -868,6 +868,10 @@ span[class="fi-rr-"]:before {
     position: relative;
 }
 
+.subMenu_dropdown.childShow .sub-menu {
+    display: block;
+}
+
 .subMenu_dropdown .menu-icon {
     position: absolute;
     right: 10px !important;

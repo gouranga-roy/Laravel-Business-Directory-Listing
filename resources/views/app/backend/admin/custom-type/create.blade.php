@@ -1,5 +1,6 @@
 <form action="{{ route('type.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
+
     <x-input type="text" label="{{ translate('Name') }}" name="name" class="mb-3" required />
     <x-input type="file" label="{{ translate('Logo') }}" name="logo" />
     <x-input type="file" label="{{ translate('Image') }}" name="image" />

@@ -7,6 +7,7 @@
 
 <form action="{{ route('category.subStore') }}" method="POST" enctype="multipart/form-data">
     @csrf
+
     <input type="hidden" name="type_id" value="{{ $categories->type_id }}">
     <input type="hidden" name="category_id" value="{{ $categories->id }}">
 

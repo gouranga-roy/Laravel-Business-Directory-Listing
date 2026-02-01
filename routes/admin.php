@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\Backend\Admin\AmenitiesController;
 use App\Http\Controllers\Backend\Admin\CategoryController;
 use App\Http\Controllers\Backend\Admin\TypeController;
 use App\Http\Controllers\Backend\Admin\UserController;
@@ -16,7 +17,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     // Type Controller
     Route::controller(TypeController::class)->group(function () {
-        Route::get('type', 'index')->name('type');
+        Route::get('type', 'index')->name('type.index');
         Route::post('type/store', 'store')->name('type.store');
         Route::put('type/{slug}/update', 'update')->name('type.update');
         Route::delete('type/{slug}/delete', 'delete')->name('type.delete');
@@ -24,14 +25,19 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     // Category Controller
     Route::controller(CategoryController::class)->group(function () {
-        Route::get('category/{slug?}', 'category')->name('category');
-        Route::post('category/store', 'store')->name('category.store');
-        Route::put('category/{slug}/update', 'update')->name('category.update');
-        Route::delete('category/{slug}/delete', 'delete')->name('category.delete');
+        Route::get('categories/{slug?}', 'index')->name('category.index');
+        Route::post('categories/store', 'store')->name('category.store');
+        Route::put('categories/{slug}/update', 'update')->name('category.update');
+        Route::delete('categories/{slug}/delete', 'delete')->name('category.delete');
 
-        Route::post('category/subcategory/store', 'subCategoryStore')->name('category.subStore');
-        Route::put('category/{slug}/sub-update', 'subCategoryUpdate')->name('category.subUpdate');
-        Route::delete('category/{slug}/sub-delete', 'subCategoryDelete')->name('category.subDelete');
+        Route::post('categories/subcategory/store', 'subCategoryStore')->name('category.subStore');
+        Route::put('categories/{slug}/sub-update', 'subCategoryUpdate')->name('category.subUpdate');
+        Route::delete('categories/{slug}/sub-delete', 'subCategoryDelete')->name('category.subDelete');
+    });
+
+    // Amenities Controller
+    Route::controller(AmenitiesController::class)->group(function () {
+        Route::get('amenities', 'index')->name('amenities.index');
     });
 
 });
