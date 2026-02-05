@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Amenities;
 use App\Models\Category;
 use App\Models\Role;
 use Illuminate\Support\Facades\Auth;
@@ -174,5 +175,13 @@ if (! function_exists('categoryCount')) {
     {
         $count = Category::where('type_id', $type_id)->where('parent_id', 0)->count();
         return $count;
+    }
+}
+
+if (! function_exists('getAmenity')) {
+    function getAmenity($amenityId)
+    {
+        $getAmenity = Amenities::where('id', $amenityId)->first();
+        return $getAmenity;
     }
 }

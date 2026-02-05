@@ -11,14 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('amenities', function (Blueprint $table) {
+        Schema::create('listing_amenities', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('parent_id')->default(0);
-            $table->string('title');
-            $table->string('slug')->unique();
-            $table->string('icon')->nullable();
-            $table->string('image')->nullable();
-            $table->boolean('status')->default(true);
+            $table->unsignedBigInteger('type_id');
+            $table->json('amenities_id');
             $table->timestamps();
         });
     }
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('amenities');
+        Schema::dropIfExists('listing_amenities');
     }
 };

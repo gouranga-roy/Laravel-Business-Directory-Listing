@@ -53,8 +53,8 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="{{ route('type.index') }}">
-                                        Manage Type
+                                    <a href="{{ route('type') }}">
+                                        {{ translate('Manage Type') }}
                                     </a>
                                 </li>
                             </ul>
@@ -80,7 +80,7 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="{{ route('category.index') }}">
+                                    <a href="{{ route('category') }}">
                                         {{ translate('Manage Category') }}
                                     </a>
                                 </li>
@@ -98,6 +98,26 @@
                                             stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </span>
+                                <span class="text">{{ translate('Amenities') }}</span>
+                                <span class="menu-icon">
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2.625 8.75L7 4.375L11.375 8.75" stroke="#7A7C83" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="{{ route('amenities') }}">
+                                        {{ translate('Manage Amenities') }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="subMenu_dropdown {{ request()->is('listing-amenities*') ? 'childShow' : '' }}">
+                            <a href="javascript:void();">
+                                <span>
+                                    <i class="fi fi-rs-house-chimney"></i>
+                                </span>
                                 <span class="text">{{ translate('Listing Amenities') }}</span>
                                 <span class="menu-icon">
                                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -107,8 +127,8 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="{{ route('category.index') }}">
-                                        {{ translate('Manage Amenities') }}
+                                    <a href="{{ route('listAmenities') }}">
+                                        {{ translate('List Amenities') }}
                                     </a>
                                 </li>
                             </ul>

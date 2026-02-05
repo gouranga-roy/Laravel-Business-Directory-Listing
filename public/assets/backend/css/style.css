@@ -811,6 +811,11 @@ span[class="fi-rr-"]:before {
     overflow: hidden;
 }
 
+.navbar-content ul li a span i {
+    color: #7A7C83;
+    font-size: 16px;
+}
+
 .sidebar.sidebar_small .navbar-content .sub-menu ul li a {
     padding: 4px;
 }
@@ -4187,4 +4192,115 @@ span[class="fi-rr-"]:before {
     object-fit: cover;
     object-position: center;
     border-radius: 6px;
+}
+
+/* -- Amenities -- */
+/* .categories-box-wrapper,
+.amenities-box-wrapper {
+    position: relative;
+    height: 76vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
+} */
+
+/* -- Tab Navigation  -- */
+/* .tab-navigation {
+    background: var(--border-color);
+    padding: 14px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.tab-navigation ul {
+    text-align: center;
+}
+
+.tab-navigation ul li {
+    display: inline-block;
+}
+
+.tab-navigation ul li a {
+    font-size: 14px;
+    color: var(--body-color);
+    padding: 6px 10px;
+
+}
+
+.tab-navigation ul li a {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.tab-navigation ul li.active a {
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+    color: var(--white-color);
+} */
+
+
+.amenitiesImg img {
+    max-width: 60px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* .amenitiesWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} */
+
+.amenitiesWrapper h4 {
+    text-align: center;
+    display: inline-block;
+    background: var(--primary-color);
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 16px;
+    color: var(--white-color);
+}
+
+.amenitiesWrapper h4 span {
+    border: 1px solid var(--white-color);
+    padding: 0 4px;
+    border-radius: 4px;
+}
+
+.amenitiesWrapper ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.amenitiesWrapper ul li .form-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.amenitiesWrapper ul li label {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--heading-color);
+}
+
+.amenitiesWrapper ul li input {
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--primary-color) !important;
+    border-radius: 2px;
+    box-shadow: 0 0 0 !important;
+}
+
+.amenitiesWrapper .form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.amenitiesWrapper .form-check-input:checked[type=checkbox] {
+    background-size: 24px;
 }

@@ -5,8 +5,8 @@
     <x-input type="file" label="{{ translate('Logo') }}" name="logo" />
     <x-input type="file" label="{{ translate('Image') }}" name="image" />
     <x-select class="mb-3" name="status" label="{{ translate('Status') }}" required>
-        <option value="1">Active</option>
-        <option value="0">Inactive</option>
+        <option value="1"> {{ translate('Active') }} </option>
+        <option value="0"> {{ translate('Inactive') }} </option>
     </x-select>
 
     <button type="submit" class="btn btn-dark rounded-6">{{ translate('Create') }}</button>
