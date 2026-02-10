@@ -9,4 +9,9 @@ class Type extends Model
     protected $fillable = ['name', 'slug', 'logo', 'image', 'status'];
 
     public $hasFile = ['logo', 'image'];
+
+    public function listingAmenities()
+    {
+        return $this->hasMany(ListingAmenity::class, 'type_id');
+    }
 }

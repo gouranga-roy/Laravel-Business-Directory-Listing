@@ -31,7 +31,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="image-upload-area">
-                    <img src="{{ getImage() }}" id="preview-product-thumbnail" alt="product-thumbnail">
+                    <img src="{{ getImage($query->first()->image) }}" id="preview-product-thumbnail" alt="product-thumbnail">
                 </div>
             </div>
         </div>
