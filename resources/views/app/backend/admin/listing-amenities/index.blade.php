@@ -3,14 +3,9 @@
 
 @php
     use App\Models\Type;
-    use App\Models\ListingAmenity;
 
     $type_id = $slug ? Type::where('slug', $slug)->value('id') : Type::value('id');
 
-    // Extra Items
-    use App\Models\Amenities;
-    // $extraItem = Type::with(['listingAmenities'])->get();
-    // dd($extraItem->toArray());
 @endphp
 
 @section('content')

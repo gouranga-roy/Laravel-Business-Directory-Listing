@@ -5,7 +5,7 @@
 
         if ($('.chosen-select').length > 0) {
             $('.chosen-select').each(function() {
-                $(this).chosen({
+                $('.chosen-select').chosen({
                     allow_single_deselect: true,
                     no_results_text: "Oops, no match found!",
                     width: "100%"
@@ -160,6 +160,23 @@
             $('select.select2:not(.initJs)').addClass('initJs');
         }
 
+        const $select2 = $('select.select2');
+
+        if ($select2.length) {
+            $select2.each(function() {
+
+                const $this = $(this);
+
+                $this.select2({
+                    // dropdownParent: $('#modal .modal-content'),
+                    placeholder: $this.data('placeholder') || @json(translate('Select an option')),
+                    allowClear: true
+                });
+
+            });
+        }
+
+
         //Text editor
         if ($('.summernote').length) {
             $('.summernote').each(function() {
@@ -227,5 +244,23 @@
                 allowClear: true
             });
         });
+    }
+
+    //Text editor
+    if ($('.text_editor:not(.inited)').length) {
+        $('.text_editor:not(.inited)').summernote({
+            height: 180,
+            minHeight: null,
+            maxHeight: null,
+            toolbar: [
+                ['color', ['color']],
+                ['font', ['bold', 'italic', 'underline', 'clear']],
+                ['fontsize', ['fontsize']],
+                ['para', ['ul', 'ol']],
+                ['table', ['table']],
+                ['insert', ['link']]
+            ]
+        });
+        $('.text_editor:not(.inited)').addClass('inited');
     }
 </script>

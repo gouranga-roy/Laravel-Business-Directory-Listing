@@ -1,6 +1,8 @@
 <?php
 use App\Http\Controllers\Backend\Admin\AmenitiesController;
 use App\Http\Controllers\Backend\Admin\CategoryController;
+use App\Http\Controllers\Backend\Admin\CustomFieldController;
+use App\Http\Controllers\Backend\Admin\DirectoryListController;
 use App\Http\Controllers\Backend\Admin\TypeController;
 use App\Http\Controllers\Backend\Admin\UserController;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +43,22 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
         Route::get('list-amenities/{slug?}', 'listAmenities')->name('listAmenities');
         Route::post('list-amenities/store', 'listAmenitiesStore')->name('listAmenities.store');
+        Route::post('listing-amenities/update', 'listAmenitiesUpdate')->name('listAmenities.update');
+        Route::delete('listing-amenities/delete', 'listAmenitiesDelete')->name('listAmenities.delete');
+    });
+
+    // Directory List
+    Route::controller(DirectoryListController::class)->group(function () {
+        Route::get('directory-list', 'index')->name('directoryList');
+        Route::get('directory-list/create', 'create')->name('directoryList.create');
+        Route::get('directory-list/search', 'searchCategory')->name('directoryList.search');
+        Route::get('directory-list/cities', 'searchCities')->name('directoryList.cities');
+    });
+
+    // Custom Filed
+    Route::controller(CustomFieldController::class)->group(function () {
+        Route::get('custom-field', 'index')->name('customField');
+        Route::get('custom-field/create', 'create')->name('customField.create');
     });
 
 });

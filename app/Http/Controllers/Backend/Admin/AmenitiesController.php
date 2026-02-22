@@ -104,4 +104,33 @@ class AmenitiesController extends Controller
 
     }
 
+    public function listAmenitiesUpdate(Request $request)
+    {
+        $request->validate([
+            'type_id'     => 'required|integer',
+            'amenities'   => 'nullable|array',
+            'amenities.*' => 'exists:amenities,id',
+        ]);
+
+        $listingAmenity = ListingAmenity::where('type_id', $request->type_id)->first();
+
+        if ($listingAmenity) {
+            $listingAmenity->update([
+                'amenities_id' => json_encode($request->amenities ?? []),
+            ]);
+        } else {
+            ListingAmenity::create([
+                'type_id'      => $request->type_id,
+                'amenities_id' => json_encode($request->amenities ?? []),
+            ]);
+        }
+
+        return back()->with('success', 'Listing amenities updated successfully!');
+    }
+
+    public function listAmenitiesDelete($slug)
+    {
+        dd($slug);
+    }
+
 }

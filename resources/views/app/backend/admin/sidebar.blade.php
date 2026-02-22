@@ -1,11 +1,9 @@
-<?php
-
-?>
-
 <!-- [ Sidebar Menu ] Start -->
 <div class="sidebar-wrapper">
+
     <aside class="sidebar">
         <div class="navebar-wrapper">
+
             <div class="sidebar-header">
                 <a href="index.html">
                     <figure class="logo-lg">
@@ -13,7 +11,9 @@
                     </figure>
                 </a>
             </div>
+
             <div class="navbar-content" id="navbar" data-simplebar>
+
                 <nav>
                     <ul>
                         <li class="caption">
@@ -21,28 +21,34 @@
                         </li>
                         <li class="active">
                             <a href="#">
-                                <span>
-                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M15.75 7.8894C15.75 7.34887 15.5012 6.83855 15.0752 6.50757H15.0742L10.0742 2.61889C9.4428 2.12741 8.55841 2.127 7.92578 2.61889L2.92578 6.50757H2.9248C2.49884 6.83855 2.25 7.34887 2.25 7.8894V13.9998C2.25 14.9664 3.03338 15.7498 4 15.7498H14C14.9666 15.7498 15.75 14.9664 15.75 13.9998V7.8894ZM17.25 13.9998C17.25 15.7948 15.795 17.2498 14 17.2498H4C2.20495 17.2498 0.75 15.7948 0.75 13.9998V7.8894C0.75 6.88667 1.21262 5.93966 2.00488 5.32397L7.00488 1.43432C8.17889 0.521557 9.82265 0.520925 10.9961 1.43432L15.9951 5.32397C16.7874 5.93966 17.25 6.88667 17.25 7.8894V13.9998Z"
-                                            fill="#7A7C83" />
-                                        <path d="M11.5 12.417L11.5771 12.4209C11.9551 12.4595 12.25 12.7788 12.25 13.167C12.2498 13.555 11.955 13.8745 11.5771 13.9131L11.5 13.917H6.5C6.0859 13.917 5.75018 13.5811 5.75 13.167C5.75 12.7528 6.08579 12.417 6.5 12.417H11.5Z" fill="#7A7C83" />
-                                    </svg>
-                                </span>
+                                <span><i class="fi fi-rs-category"></i></span>
                                 <span class="text">{{ translate('Dashboard') }}</span>
                             </a>
+                        </li>
+                        <li class="subMenu_dropdown {{ request()->is('directory-list*') ? 'childShow' : '' }}">
+                            <a href="javascript:void(0)">
+                                <span>
+                                    <i class="fi fi-rr-folder-times"></i>
+                                </span>
+                                <span class="text">{{ translate('Directory Listing') }}</span>
+                                <span class="menu-icon">
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2.625 8.75L7 4.375L11.375 8.75" stroke="#7A7C83" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href=" {{ route('directoryList') }} ">
+                                        {{ translate('Manage Listing ') }}
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="subMenu_dropdown {{ request()->is('type*') ? 'childShow' : '' }}">
                             <a href="javascript:void();">
                                 <span>
-                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5.66663 0.666748V3.16675" stroke="#7A7C83" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M12.3334 0.666748V3.16675" stroke="#7A7C83" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M4.83337 9.83325H11.5" stroke="#7A7C83" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M4.83337 13.1667H9.00004" stroke="#7A7C83" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M12.3333 1.91675C15.1083 2.06675 16.5 3.12508 16.5 7.04175V12.1917C16.5 15.6251 15.6667 17.3417 11.5 17.3417H6.5C2.33333 17.3417 1.5 15.6251 1.5 12.1917V7.04175C1.5 3.12508 2.89167 2.07508 5.66667 1.91675H12.3333Z" stroke="#7A7C83" stroke-width="1.3"
-                                            stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
+                                    <i class="fi fi-rr-ftp"></i>
                                 </span>
                                 <span class="text">{{ translate('Directory Type') }}</span>
                                 <span class="menu-icon">
@@ -59,17 +65,10 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="subMenu_dropdown {{ request()->is('category*') ? 'childShow' : '' }}">
+                        <li class="subMenu_dropdown {{ request()->is('categories*') ? 'childShow' : '' }}">
                             <a href="javascript:void();">
                                 <span>
-                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5.66663 0.666748V3.16675" stroke="#7A7C83" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M12.3334 0.666748V3.16675" stroke="#7A7C83" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M4.83337 9.83325H11.5" stroke="#7A7C83" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M4.83337 13.1667H9.00004" stroke="#7A7C83" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M12.3333 1.91675C15.1083 2.06675 16.5 3.12508 16.5 7.04175V12.1917C16.5 15.6251 15.6667 17.3417 11.5 17.3417H6.5C2.33333 17.3417 1.5 15.6251 1.5 12.1917V7.04175C1.5 3.12508 2.89167 2.07508 5.66667 1.91675H12.3333Z" stroke="#7A7C83" stroke-width="1.3"
-                                            stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
+                                    <i class="fi fi-rr-settings-sliders"></i>
                                 </span>
                                 <span class="text">{{ translate('Listing Categories') }}</span>
                                 <span class="menu-icon">
@@ -89,14 +88,7 @@
                         <li class="subMenu_dropdown {{ request()->is('amenities*') ? 'childShow' : '' }}">
                             <a href="javascript:void();">
                                 <span>
-                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5.66663 0.666748V3.16675" stroke="#7A7C83" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M12.3334 0.666748V3.16675" stroke="#7A7C83" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M4.83337 9.83325H11.5" stroke="#7A7C83" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M4.83337 13.1667H9.00004" stroke="#7A7C83" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M12.3333 1.91675C15.1083 2.06675 16.5 3.12508 16.5 7.04175V12.1917C16.5 15.6251 15.6667 17.3417 11.5 17.3417H6.5C2.33333 17.3417 1.5 15.6251 1.5 12.1917V7.04175C1.5 3.12508 2.89167 2.07508 5.66667 1.91675H12.3333Z" stroke="#7A7C83"
-                                            stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
+                                    <i class="fi fi-rr-magic-wand"></i>
                                 </span>
                                 <span class="text">{{ translate('Amenities') }}</span>
                                 <span class="menu-icon">
@@ -113,12 +105,12 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="subMenu_dropdown {{ request()->is('listing-amenities*') ? 'childShow' : '' }}">
+                        <li class="subMenu_dropdown {{ request()->is('list-amenities*') ? 'childShow' : '' }}">
                             <a href="javascript:void();">
                                 <span>
-                                    <i class="fi fi-rs-house-chimney"></i>
+                                    <i class="fi fi-rr-parachute-box"></i>
                                 </span>
-                                <span class="text">{{ translate('Listing Amenities') }}</span>
+                                <span class="text">{{ translate('List Amenities') }}</span>
                                 <span class="menu-icon">
                                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M2.625 8.75L7 4.375L11.375 8.75" stroke="#7A7C83" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -128,7 +120,27 @@
                             <ul class="sub-menu">
                                 <li>
                                     <a href="{{ route('listAmenities') }}">
-                                        {{ translate('List Amenities') }}
+                                        {{ translate('Manage Amenities') }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="subMenu_dropdown {{ request()->is('custom-field*') ? 'childShow' : '' }}">
+                            <a href="javascript:void();">
+                                <span>
+                                    <i class="fi fi-rs-customize-edit"></i>
+                                </span>
+                                <span class="text">{{ translate('Custom Filed') }}</span>
+                                <span class="menu-icon">
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2.625 8.75L7 4.375L11.375 8.75" stroke="#7A7C83" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="{{ route('customField') }}">
+                                        {{ translate('Add Filed') }}
                                     </a>
                                 </li>
                             </ul>
@@ -193,8 +205,10 @@
                         </li>
                     </ul>
                 </nav>
+
             </div>
         </div>
     </aside>
+
 </div>
 <!-- [ Sidebar Menu ] End -->

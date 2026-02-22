@@ -14,50 +14,40 @@
 
             <div class="col-12">
                 <div class="card">
+
                     @if (!empty($hasAmenity))
-                        <div class="table-responsive">
-                            <table class="table align-middle fs-12 text-secondary student-table">
 
-                                <thead class="table-light">
-                                    <tr class="">
-                                        <th scope="col"> {{ translate('Title') }} </th>
-                                        <th scope="col"> {{ translate('Image') }}</th>
-                                        <th scope="col"> {{ translate('Status') }}</th>
-                                        <th scope="col">
-                                            <span class="d-flex justify-content-end"> {{ translate('Action') }}</span>
-                                        </th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-
-                                    @foreach ($hasAmenity as $amenity)
-                                        <tr>
-                                            <td> {{ getAmenity($amenity)->title }} </td>
-                                            <td class="amenitiesImg">
-                                                <img src="{{ getImage(getAmenity($amenity)->image) }}" alt="">
-                                            </td>
-                                            <td>
+                        <div class="amenitiesGrid-wrapper">
+                            <div class="row">
+                                @foreach ($hasAmenity as $amenity)
+                                    <div class="col-lg-4 col-md-4">
+                                        <div class="amenities-card">
+                                            <img src="{{ getImage(getAmenity($amenity)->image) }}" alt="">
+                                            <div class="amenities-text">
+                                                <h4>{{ getAmenity($amenity)->title }}</h4>
                                                 @if (getAmenity($amenity)->status == 1)
                                                     <span class="badge text-bg-primary p-2">Active</span>
                                                 @else
                                                     <span class="badge text-bg-danger p-2">Inactive</span>
                                                 @endif
-                                            </td>
-                                            <td>
-                                                <x-dropdown>
-                                                    <x-drop-modal :title="translate('Edit')" :url="path(['admin::amenities.edit', 'slug' => getAmenity($amenity)->slug])" />
-                                                    <x-drop-delete :title="translate('Delete')" :url="route('amenities.delete', getAmenity($amenity)->slug)" />
-                                                </x-dropdown>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <x-dropdown>
+                                        <x-drop-modal :title="translate('Edit')" :url="path(['admin::listing-amenities.edit', 'type_id' => $type_id, 'slug' => $slug])" />
+                                        <x-drop-delete :title="translate('Delete')" :url="route('listAmenities.delete', $slug)" />
+                                    </x-dropdown>
+                                </div>
+                            </div>
                         </div>
                     @else
                         @include('admin::no_data');
                     @endif
+
                 </div>
             </div>
 

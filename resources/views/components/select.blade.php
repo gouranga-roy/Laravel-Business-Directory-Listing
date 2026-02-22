@@ -7,7 +7,7 @@
         </label>
     @endif
 
-    <select id="{{ $id ?? $name }}" name="{{ $name }}" class="custom-selectTo form-select">
+    <select id="{{ $id ?? $name }}" name="{{ $name }}" class="form-select select2" data-placeholder="{{ $placeholder }}">
         {{ $slot }}
     </select>
 </div>

@@ -945,7 +945,21 @@ span[class="fi-rr-"]:before {
 .navbar-content ul li .sub-menu li a {
     color: var(--body-color);
     margin: 0;
-    padding: 6px 12px;
+    padding: 6px 16px;
+    position: relative;
+}
+
+.navbar-content ul li .sub-menu li a::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+    background: #b5b5b5;
 }
 
 .navbar-content ul li .sub-menu li {
@@ -4303,4 +4317,108 @@ span[class="fi-rr-"]:before {
 
 .amenitiesWrapper .form-check-input:checked[type=checkbox] {
     background-size: 24px;
+}
+
+.amenitiesGrid-wrapper {
+    padding: 10px;
+}
+
+.amenities-card {
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+    border-radius: 10px;
+    padding: 14px;
+    margin: 0 0 20px;
+}
+
+.amenities-card img {
+    max-width: 70px;
+    width: 100%;
+    object-fit: cover;
+    margin: 0 0 20px;
+    border: 1px solid var(--border-color);
+    padding: 6px;
+}
+
+.amenities-text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+}
+
+.amenities-text h4 {
+    font-size: 16px;
+}
+
+.modal-header .btn-close i {
+    display: none;
+}
+
+.amenities-card .dropdown-toggle {
+    border: 0 !important;
+    padding: 0 !important;
+    transform: rotate(-90deg);
+}
+
+.amenities-card .dropdown-toggle::after {
+    display: none;
+}
+
+
+.amenities-card .dropdown-toggle svg {
+    width: 26px !important;
+    height: 26px !important;
+}
+
+/* -- Directory List -- */
+.directoryList-menu {
+    background: #F7F7FA;
+    padding: 10px;
+    border-radius: 6px;
+    height: 100%;
+}
+
+.directoryList-menu ul li {
+    margin: 0 0 6px;
+}
+
+.directoryList-menu ul li a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #1e19190d;
+    border-radius: 4px;
+    color: var(--heading-color);
+    font-weight: 500;
+}
+
+.directoryList-menu ul li a i {
+    line-height: 0;
+    color: #ebebeb;
+}
+
+.directoryList-menu ul li.active a {
+    background: var(--primary-color);
+    color: var(--white-color);
+    border-color: var(--primary-color);
+}
+
+.default-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    min-height: 300px;
+}
+
+.default-view span {
+    font-size: 20px;
+    margin: 0 0 20px;
+}
+
+.select2-container {
+    width: 100% !important;
 }

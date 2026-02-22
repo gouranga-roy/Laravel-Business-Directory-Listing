@@ -24,11 +24,19 @@
     /------------------------------------------------------*/
 
     var $niceSelect = $('.nice-control');
-    var $elements = $('.choice-select');
+    var $choiceSelect = $('.choice-select');
     var $customSelectTo = $('.custom-selectTo');
     var $summernote = $('.summernote');
     var $editor = $('.editor');
     var $iconPicker = $('.icon-picker');
+
+
+    // Select 2
+    if ($customSelectTo.length > 0) {
+        $customSelectTo.each(function () {
+            $(this).select2();
+        });
+    }
 
     // Nice Select
     if ($niceSelect.length > 0) {
@@ -38,8 +46,8 @@
     }
 
     // Choice Select
-    if ($elements.length > 0) {
-        $elements.each(function () {
+    if ($choiceSelect.length > 0) {
+        $choiceSelect.each(function () {
             const $this = $(this);
 
             // Placeholder set
@@ -49,7 +57,7 @@
             new Choices(this, {
                 removeItemButton: true,
                 searchEnabled: true,
-                placeholderValue: 'Select options...',
+                placeholder: true,
                 noResultsText: 'No results found',
                 itemSelectText: '',
                 shouldSort: false,
@@ -59,16 +67,24 @@
         });
     }
 
+    $(".choice-select").select2({
+        tags: "true",
+        placeholder: "Select an option",
+        allowClear: true
+    });
+
     // Custom Select To
-    if ($customSelectTo.length > 0) {
-        $customSelectTo.each(function () {
-            $(this).select2({
-                dropdownParent: $('#modal .modal-content'),
-                placeholder: "Select a state",
-                allowClear: true
-            });
-        });
-    }
+    // if ($customSelectTo.length > 0) {
+    //     $customSelectTo.each(function () {
+    //         $(this).select2({
+    //             dropdownParent: $('#modal .modal-content'),
+    //             placeholder: "Select a state",
+    //             allowClear: true
+    //         });
+    //     });
+    // }
+
+
 
     //Summernote Editor
     if ($summernote.length > 0) {

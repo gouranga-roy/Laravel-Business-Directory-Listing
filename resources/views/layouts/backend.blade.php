@@ -5,7 +5,7 @@
     <link href="{{ asset('assets/backend/css/bootstrap-slider.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/backend/icon-picker/fontawesome-iconpicker.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/backend/css/fontawesome.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/backend/css/nice-select.css') }}" rel="stylesheet" />
+    {{-- <link href="{{ asset('assets/backend/css/nice-select.css') }}" rel="stylesheet" /> --}}
     <link href="{{ asset('assets/backend/css/select2.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/backend/css/jquery-ui.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/backend/css/summernote-lite.min.css') }}" rel="stylesheet" />
@@ -43,7 +43,7 @@
     <script src="{{ asset('assets/backend/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/backend/js/jquery-ui.min.js') }}"></script>
     <script src="{{ asset('assets/backend/js/jquery.plugin.min.js') }}"></script>
-    <script src="{{ asset('assets/backend/js/jquery.nice-select.min.js') }}"></script>
+    {{-- <script src="{{ asset('assets/backend/js/jquery.nice-select.min.js') }}"></script> --}}
     <script src="{{ asset('assets/backend/js/select2.min.js') }}"></script>
     <script src="{{ asset('assets/backend/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/backend/js/bootstrap-slider.min.js') }}"></script>

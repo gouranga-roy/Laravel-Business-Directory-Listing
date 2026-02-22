@@ -10,7 +10,7 @@
 
 <div class="amenitiesWrapper">
     <div class="text-center mb-30">
-        <h4>Add Amenities For <span> {{ $typeName }}</span></h4>
+        <h4>{{ translate('Add Amenities For') }} <span> {{ $typeName }}</span></h4>
     </div>
     <form action="{{ route('listAmenities.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -25,7 +25,7 @@
                     </div>
                 </li>
             @empty
-                <h4>Not Found Amenities</h4>
+                <h4>{{ translate('Not Found Amenities') }}</h4>
             @endforelse
 
         </ul>
