@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\City;
+use App\Models\CustomField;
 use App\Models\Type;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,8 @@ class DirectoryListController extends Controller
 {
     public function index()
     {
-        return view('admin::directory-list.index');
+        $page_data['list_type'] = Type::get();
+        return view('admin::directory-list.index', $page_data);
     }
 
     public function create()
@@ -26,8 +28,15 @@ class DirectoryListController extends Controller
     {
         $typeId = $request->type_id;
 
+        // Get custom field
+        $fieldGet = CustomField::where('listing_type', $typeId)->get();
+
         if ($typeId) {
             $contentForm = view('admin::directory-list.container')->render();
+
+            $customField = view('admin::directory-list.field', [
+                'fieldGet' => $fieldGet,
+            ])->render();
         }
 
         $floatOptions = [];
@@ -48,6 +57,7 @@ class DirectoryListController extends Controller
             'success'     => true,
             'categories'  => $floatOptions,
             'contentForm' => $contentForm,
+            'customField' => $customField,
         ]);
     }
 

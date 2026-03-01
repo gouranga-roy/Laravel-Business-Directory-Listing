@@ -5,21 +5,19 @@
     <div class="directoryList-wrapper">
         <div class="row mb-20 py-10 rounded-10 bg-light align-items-center">
             <div class="col-lg-6 col-md-6">
-                <h4 class="fs-20 text-secondary mb-0">Directory Listing</h4>
+                <h4 class="fs-20 text-secondary mb-0">{{ translate('Directory Listing') }}</h4>
             </div>
             <div class="col-lg-6 col-md-6 text-end">
-                <a href="{{ route('directoryList.create') }}" class="btn btn-sm btn-dark">Add New Listing</a>
+                <a href="{{ route('directoryList.create') }}" class="btn btn-sm btn-dark">{{ translate('Add New Listing') }}</a>
             </div>
         </div>
         <div class="row">
             <div class="col-xl-3 col-lg-3 col-md-3">
                 <div class="directoryList-menu">
                     <ul>
-                        <li><a href="#">Hotel <i class="fa-solid fa-arrow-right"></i></a></li>
-                        <li class="active"><a href="#">Real-Estate <i class="fa-solid fa-arrow-right"></i></a></li>
-                        <li><a href="#">Beauty <i class="fa-solid fa-arrow-right"></i></a></li>
-                        <li><a href="#">Dentist <i class="fa-solid fa-arrow-right"></i></a></li>
-                        <li><a href="#">Hospital <i class="fa-solid fa-arrow-right"></i></a></li>
+                        @foreach ($list_type as $type)
+                            <li class="active"><a href="{{ route('directoryList', [$type->slug]) }}">{{ $type->name }} <i class="fa-solid fa-arrow-right"></i></a></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>

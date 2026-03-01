@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('custom_fields', function (Blueprint $table) {
             $table->id();
+            $table->string('label');
+            $table->string('field');
+            $table->boolean('is_required')->nullable();
+            $table->boolean('status')->nullable();
+            $table->string('placeholder')->nullable();
+            $table->string('listing_type')->nullable();
             $table->timestamps();
         });
     }

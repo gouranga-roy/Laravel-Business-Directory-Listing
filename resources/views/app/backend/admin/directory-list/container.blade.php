@@ -5,7 +5,11 @@
 
 @endphp
 
-<form action="">
+<form action="#" method="post">
+    @csrf
+
+    <button type="submit" class="btn btn-dark">Submit</button>
+
     <ul class="nav nav-tabs mb-20" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="info-tab" data-bs-toggle="tab" data-bs-target="#info-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">{{ translate('Basic Info') }}</button>
@@ -31,23 +35,8 @@
                 <x-input type="text" name="title" label="{{ translate('Listing Title *') }}" />
             </div>
 
-            <div class="row">
-                <div class="col-md-6">
-                    <x-input type="number" label="{{ translate('Listing price *') }}" name="list-price" />
-                </div>
-                <div class="col-md-6">
-                    <x-input type="number" label="{{ translate('Bed number *') }}" name="bed-number" />
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <x-input type="number" label="{{ translate('Bath number *') }}" name="bath-number" />
-                </div>
-                <div class="col-md-6">
-                    <x-input type="number" label="{{ translate('Floor Size *') }}" name="floor-size" />
-                </div>
-            </div>
+            {{-- Custom Field --}}
+            <div class="field-content"></div>
 
             <div class="row">
                 <div class="col-md-6">
@@ -76,6 +65,7 @@
                     </div>
                 </div>
             </div>
+
 
             <div class="mb-20">
                 <label for="description" class="form-label">{{ translate('Description *') }}</label>
@@ -188,7 +178,6 @@
 
     </div>
 </form>
-
 
 @include('core::initJs')
 @include('core::scripts')

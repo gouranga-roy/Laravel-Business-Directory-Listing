@@ -17,4 +17,8 @@ class ListingAmenity extends Model
     {
         return $this->belongsTo(Type::class, 'type_id');
     }
+
+    protected $casts = [
+        'amenities_id' => 'array',
+    ];
 }

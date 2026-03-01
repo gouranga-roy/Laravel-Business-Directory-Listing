@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\Admin\CustomFieldController;
 use App\Http\Controllers\Backend\Admin\DirectoryListController;
 use App\Http\Controllers\Backend\Admin\TypeController;
 use App\Http\Controllers\Backend\Admin\UserController;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'admin'])->group(function () {
@@ -58,7 +59,12 @@ Route::middleware(['auth', 'admin'])->group(function () {
     // Custom Filed
     Route::controller(CustomFieldController::class)->group(function () {
         Route::get('custom-field', 'index')->name('customField');
-        Route::get('custom-field/create', 'create')->name('customField.create');
+        Route::post('custom-field/store', 'store')->name('customField.store');
+        Route::post('custom-field/{id}/update', 'update')->name('customField.update');
+        Route::delete('custom-field//{id}/delete', 'delete')->name('customField.delete');
+
+        Route::post('custom-field/status-update', 'statusUpdate')->name('customField.status');
+        // Route::post('dummy', 'dummy')->name('dummy');
     });
 
 });

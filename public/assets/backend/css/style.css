@@ -4422,3 +4422,8 @@ span[class="fi-rr-"]:before {
 .select2-container {
     width: 100% !important;
 }
+
+
+.table-responsive .table td span.is_required {
+    color: red;
+}

@@ -114,6 +114,14 @@ class AmenitiesController extends Controller
 
         $listingAmenity = ListingAmenity::where('type_id', $request->type_id)->first();
 
+        // ListingAmenity::updateOrCreate(
+        //     ['type_id', $request->type_id],
+        //     [
+        //         'type_id'      => $request->type_id,
+        //         'amenities_id' => json_encode($request->amenities ?? []),
+        //     ]
+        // );
+
         if ($listingAmenity) {
             $listingAmenity->update([
                 'amenities_id' => json_encode($request->amenities ?? []),

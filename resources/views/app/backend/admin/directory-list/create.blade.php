@@ -71,6 +71,8 @@
 
 @push('js')
     <script>
+        'use strict';
+
         // Listing Directory
         $(document).on('change', '#directoryType', function() {
             let typeId = $(this).val();
@@ -95,6 +97,8 @@
                     if (res.success) {
 
                         $('.import-content').html(res.contentForm);
+
+                        $('.field-content').html(res.customField);
 
                         $('.default-view').css({
                             'display': 'none'
