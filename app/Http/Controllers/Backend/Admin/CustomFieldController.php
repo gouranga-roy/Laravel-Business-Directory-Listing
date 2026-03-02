@@ -12,7 +12,7 @@ class CustomFieldController extends Controller
 {
     public function index()
     {
-        $page_data['fieldAll'] = CustomField::get();
+        $page_data['fieldAll'] = CustomField::with('types')->get();
 
         return view('admin::custom-field.index', $page_data);
     }
@@ -20,12 +20,13 @@ class CustomFieldController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'label'        => 'required|string|max:100',
-            'field'        => 'required|string|max:100',
-            'is_required'  => 'nullable|boolean',
-            'status'       => 'nullable|boolean',
-            'placeholder'  => 'nullable|string',
-            'listing_type' => 'nullable|integer',
+            'label'            => 'required|string|max:100',
+            'field'            => 'required|string|max:100',
+            'multi_value_type' => 'nullable|max:250',
+            'is_required'      => 'nullable|boolean',
+            'status'           => 'nullable|boolean',
+            'placeholder'      => 'nullable|string',
+            'listing_type'     => 'nullable|integer',
         ]);
 
         CustomField::create($validated);
@@ -38,12 +39,13 @@ class CustomFieldController extends Controller
         $customField = CustomField::firstWhere('id', $id);
 
         $validated = $request->validate([
-            'label'        => 'required|string|max:100',
-            'field'        => 'required|string|max:100',
-            'is_required'  => 'nullable|boolean',
-            'status'       => 'nullable|boolean',
-            'placeholder'  => 'nullable|string',
-            'listing_type' => 'nullable|integer',
+            'label'            => 'required|string|max:100',
+            'field'            => 'required|string|max:100',
+            'multi_value_type' => 'nullable|max:250',
+            'is_required'      => 'nullable|boolean',
+            'status'           => 'nullable|boolean',
+            'placeholder'      => 'nullable|string',
+            'listing_type'     => 'nullable|integer',
         ]);
 
         $validated['is_required'] = $request->has('is_required') ? 1 : null;

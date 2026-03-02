@@ -73,18 +73,6 @@
         allowClear: true
     });
 
-    // Custom Select To
-    // if ($customSelectTo.length > 0) {
-    //     $customSelectTo.each(function () {
-    //         $(this).select2({
-    //             dropdownParent: $('#modal .modal-content'),
-    //             placeholder: "Select a state",
-    //             allowClear: true
-    //         });
-    //     });
-    // }
-
-
 
     //Summernote Editor
     if ($summernote.length > 0) {
@@ -108,6 +96,17 @@
                     toolbar: true
                 }
             });
+        });
+    }
+
+    // Multiple tags choices
+    if ($('.multiTagChoice').length > 0) {
+        new Choices(this, {
+            removeItemButton: true,
+            duplicateItemsAllowed: false,
+            addItems: true,
+            delimiter: ',',
+            paste: true,
         });
     }
 

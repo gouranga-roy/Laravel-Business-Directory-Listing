@@ -263,4 +263,23 @@
         });
         $('.text_editor:not(.inited)').addClass('inited');
     }
+
+    // Multi tags choices
+    if ($('.multiTagChoice:not(.inited)').length) {
+
+        $('.multiTagChoice:not(.inited)').each(function() {
+
+            new Choices(this, {
+                removeItemButton: true,
+                duplicateItemsAllowed: false,
+                addItems: true,
+                delimiter: ',',
+                paste: true,
+            });
+
+            $(this).addClass('inited');
+
+        });
+
+    }
 </script>

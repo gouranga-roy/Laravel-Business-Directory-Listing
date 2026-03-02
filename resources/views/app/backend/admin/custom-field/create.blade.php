@@ -10,7 +10,7 @@
 
     <x-input type="text" name="label" label="Label field name *"></x-input>
 
-    <x-select name="field" placeholder="{{ translate('Select Type.') }}" label="{{ translate('Field label type') }}">
+    <x-select name="field" id="field_select" placeholder="{{ translate('Select Type.') }}" label="{{ translate('Field label type *') }}">
         <option value=""></option>
         <option value="text"> {{ translate('Text') }}</option>
         <option value="email"> {{ translate('Email') }}</option>
@@ -20,6 +20,13 @@
         <option value="checkbox"> {{ translate('Checkbox') }}</option>
         <option value="radio"> {{ translate('Radio') }}</option>
     </x-select>
+
+    <div class="mb-3 multiple-field-type" hidden="hidden">
+        <label for="multi_value_type" class="form-label">Insert your options </label>
+        <input type="text" class="multiTagChoice" name="multi_value_type[]" placeholder="Type and press enter">
+
+        {{-- <textarea name="multi_value_type" class="form-control" id="multi_value_type" placeholder="Example: Small, Medium, Large"></textarea> --}}
+    </div>
 
     <div class="mb-2 d-flex align-items-center gap-2 mb-16">
         <div class="form-switch dtable-switch p-0">

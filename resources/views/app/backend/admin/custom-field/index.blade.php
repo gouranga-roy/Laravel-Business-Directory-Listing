@@ -11,6 +11,7 @@
                 <x-btn-modal :title="translate('Add Custom Field')" :dataTitle="translate('New Custom Field')" :url="path(['admin::custom-field.create'])" />
             </div>
         </div>
+
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -51,12 +52,14 @@
                                     </th>
                                     <th scope="col">{{ translate('Field Name') }}</th>
                                     <th scope="col">{{ translate('Field Type') }}</th>
+                                    <th scope="col">{{ translate('View Type') }}</th>
                                     <th scope="col">{{ translate('Status') }}</th>
                                     <th scope="col">
                                         <span class="d-flex justify-content-end">{{ translate('Action') }}</span>
                                     </th>
                                 </tr>
                             </thead>
+
                             <tbody>
                                 @foreach ($fieldAll as $key => $field)
                                     <tr>
@@ -68,6 +71,7 @@
                                             {{ $field->label }} <span class="is_required">{{ $field->is_required == 1 ? '*' : '' }}</span>
                                         </td>
                                         <td>{{ $field->field }}</td>
+                                        <td>{{ $field->types->name }}</td>
                                         <td>
                                             <div class="form-switch dtable-switch p-0">
                                                 <input class="form-check-input fieldSwitcher" type="checkbox" role="switch" id="dswitch4" {{ $field->status == 1 ? 'checked' : '' }} data-id="{{ $field->id }}">
@@ -113,6 +117,17 @@
 
                 });
 
+            });
+
+            // Insert multiple value type
+            $(document).on('change', '#field_select', function() {
+                let getVal = $(this).val();
+
+                if (getVal == 'select' || getVal == 'checkbox' || getVal == 'radio') {
+                    $('.multiple-field-type').removeAttr('hidden');
+                } else {
+                    $('.multiple-field-type').attr('hidden', true);
+                }
             });
         </script>
     @endpush

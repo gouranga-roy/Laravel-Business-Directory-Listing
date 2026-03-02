@@ -13,7 +13,7 @@
 
     <x-input type="text" name="label" label="Label field name *" value="{{ $field_data->label }}"></x-input>
 
-    <x-select name="field" placeholder="{{ translate('Select Type.') }}" label="{{ translate('Field label type') }}">
+    <x-select name="field" id="field_select" placeholder="{{ translate('Select Type.') }}" label="{{ translate('Field label type') }}">
         <option value=""></option>
         <option value="text" {{ $field_data->field == 'text' ? 'selected' : '' }}> {{ translate('Text') }}</option>
         <option value="email" {{ $field_data->field == 'email' ? 'selected' : '' }}> {{ translate('Email') }}</option>
@@ -23,6 +23,13 @@
         <option value="checkbox" {{ $field_data->field == 'checkbox' ? 'selected' : '' }}> {{ translate('Checkbox') }}</option>
         <option value="radio" {{ $field_data->field == 'radio' ? 'selected' : '' }}> {{ translate('Radio') }}</option>
     </x-select>
+
+    @if ($field_data->field == 'select' || $field_data->field == 'checkbox' || $field_data->field == 'radio')
+        <div class="mb-3 multiple-field-type">
+            <label for="multi_value_type" class="form-label">Insert your options </label>
+            <input type="text" class="multiTagChoice" name="multi_value_type[]" placeholder="Type and press enter" value="{{ $field_data->multi_value_type[0] }}" />
+        </div>
+    @endif
 
     <div class="mb-2 d-flex align-items-center gap-2 mb-16">
         <div class="form-switch dtable-switch p-0">

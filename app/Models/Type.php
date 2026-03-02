@@ -14,4 +14,9 @@ class Type extends Model
     {
         return $this->hasMany(ListingAmenity::class, 'type_id');
     }
+
+    public function field()
+    {
+        return $this->hasMany(CustomField::class);
+    }
 }
