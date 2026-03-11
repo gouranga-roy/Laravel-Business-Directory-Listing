@@ -13,4 +13,9 @@ class Category extends Model
         return $this->hasMany(Category::class, 'parent_id');
     }
 
+    public function directory()
+    {
+        return $this->hasMany(DirectoryList::class, 'category_id');
+    }
+
 }

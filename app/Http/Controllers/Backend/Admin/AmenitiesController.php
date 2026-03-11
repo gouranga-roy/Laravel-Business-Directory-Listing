@@ -97,7 +97,7 @@ class AmenitiesController extends Controller
 
         ListingAmenity::create([
             'type_id'      => $request->type_id,
-            'amenities_id' => json_encode($request->amenities),
+            'amenities_id' => $request->amenities,
         ]);
 
         return goBack('success', 'Listing amenities create successfully!');
@@ -124,12 +124,12 @@ class AmenitiesController extends Controller
 
         if ($listingAmenity) {
             $listingAmenity->update([
-                'amenities_id' => json_encode($request->amenities ?? []),
+                'amenities_id' => $request->amenities ?? [],
             ]);
         } else {
             ListingAmenity::create([
                 'type_id'      => $request->type_id,
-                'amenities_id' => json_encode($request->amenities ?? []),
+                'amenities_id' => $request->amenities ?? [],
             ]);
         }
 

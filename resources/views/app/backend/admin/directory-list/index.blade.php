@@ -26,25 +26,37 @@
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
+                                <th scope="col">{{ translate('#') }}</th>
+                                <th scope="col"> {{ translate('Title') }}</th>
+                                <th scope="col"> {{ translate('Category') }}</th>
+                                <th scope="col"> {{ translate('Price') }}</th>
+                                <th scope="col"> {{ translate('Visibility') }}</th>
+                                <th scope="col"> {{ translate('Action') }}</th>
                             </tr>
                         </thead>
+
                         <tbody class="table-group-divider">
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>John</td>
-                                <td>Doe</td>
-                                <td>@social</td>
-                            </tr>
+                            @foreach ($listsAll as $list)
+                                <tr>
+                                    <th scope="row">{{ $loop->iteration }}</th>
+                                    <td> {{ $list->title }} </td>
+                                    <td> {{ $list->category->title }} </td>
+                                    <td> {{ $list->price }} </td>
+                                    <td>
+                                        @if ($list->status == 1)
+                                            <span class="badge rounded-pill text-bg-primary">Active</span>
+                                        @else
+                                            <span class="badge rounded-pill text-bg-warning">Directive</span>
+                                        @endif
+
+                                    </td>
+                                    <td>
+                                        <button>Edit</button>
+                                        <button>Delete</button>
+                                    </td>
+                                </tr>
+                            @endforeach
+
                         </tbody>
                     </table>
                 </div>

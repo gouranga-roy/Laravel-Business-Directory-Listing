@@ -1,9 +1,14 @@
 @php
     use App\Models\ListingAmenity;
+    use App\Models\Amenities;
 
-    $listingAmenity = ListingAmenity::where('type_id', $type_id);
+    $listingAmenity = ListingAmenity::where('type_id', $type_id)->value('amenities_id');
 
-    $hasAmenity = json_decode($listingAmenity->value('amenities_id'), true);
+    function getAmenity($amenityId)
+    {
+        $getAmenity = Amenities::where('id', $amenityId)->first();
+        return $getAmenity;
+    }
 
 @endphp
 
@@ -15,20 +20,20 @@
             <div class="col-12">
                 <div class="card">
 
-                    @if (!empty($hasAmenity))
+                    @if (!empty($listingAmenity))
 
                         <div class="amenitiesGrid-wrapper">
                             <div class="row">
-                                @foreach ($hasAmenity as $amenity)
+                                @foreach ($listingAmenity as $amenity)
                                     <div class="col-lg-4 col-md-4">
                                         <div class="amenities-card">
                                             <img src="{{ getImage(getAmenity($amenity)->image) }}" alt="">
                                             <div class="amenities-text">
                                                 <h4>{{ getAmenity($amenity)->title }}</h4>
                                                 @if (getAmenity($amenity)->status == 1)
-                                                    <span class="badge text-bg-primary p-2">Active</span>
+                                                    <span class="badge text-bg-primary p-2">{{ translate('Active') }}</span>
                                                 @else
-                                                    <span class="badge text-bg-danger p-2">Inactive</span>
+                                                    <span class="badge text-bg-danger p-2">{{ translate('Inactive') }}</span>
                                                 @endif
                                             </div>
                                         </div>

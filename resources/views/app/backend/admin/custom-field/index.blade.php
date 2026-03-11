@@ -121,12 +121,33 @@
 
             // Insert multiple value type
             $(document).on('change', '#field_select', function() {
-                let getVal = $(this).val();
+                let type = $(this).val();
 
-                if (getVal == 'select' || getVal == 'checkbox' || getVal == 'radio') {
-                    $('.multiple-field-type').removeAttr('hidden');
-                } else {
-                    $('.multiple-field-type').attr('hidden', true);
+                // Remove previous options
+                $('#field-options-area').html('');
+
+                if (type == 'select' || type == 'checkbox' || type == 'radio') {
+
+                    let html = `
+                        <div class="mb-3 multiple-field-type">
+                            <label for="multi_value_option" class="form-label"> {{ translate('Insert your options') }}</label>
+                            <input type="text" class="multiTagChoice" name="options[]" data-placeholder="{{ translate('Type and press enter') }}">
+                        </div>
+                    `;
+                    $('#field-options-area').append(html);
+
+                    $('.multiTagChoice').each(function() {
+
+                        new Choices(this, {
+                            removeItemButton: true,
+                            duplicateItemsAllowed: false,
+                            addItems: true,
+                            delimiter: ',',
+                            placeholder: true,
+                            paste: true,
+                        });
+
+                    });
                 }
             });
         </script>

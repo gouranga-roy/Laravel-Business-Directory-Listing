@@ -50,10 +50,12 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     // Directory List
     Route::controller(DirectoryListController::class)->group(function () {
-        Route::get('directory-list', 'index')->name('directoryList');
-        Route::get('directory-list/create', 'create')->name('directoryList.create');
-        Route::get('directory-list/search', 'searchCategory')->name('directoryList.search');
-        Route::get('directory-list/cities', 'searchCities')->name('directoryList.cities');
+        Route::get('directory-list/{slug?}', 'index')->name('directoryList');
+        Route::get('directory-list/listing/create', 'create')->name('directoryList.create');
+        Route::get('directory-list/listing/search', 'searchCategory')->name('directoryList.search');
+        Route::get('directory-list/listing/cities', 'searchCities')->name('directoryList.cities');
+
+        Route::post('directory-list/store', 'store')->name('directoryList.store');
     });
 
     // Custom Filed
@@ -64,7 +66,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::delete('custom-field//{id}/delete', 'delete')->name('customField.delete');
 
         Route::post('custom-field/status-update', 'statusUpdate')->name('customField.status');
-        // Route::post('dummy', 'dummy')->name('dummy');
     });
 
 });

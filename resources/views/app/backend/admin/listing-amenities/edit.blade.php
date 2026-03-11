@@ -7,7 +7,7 @@
 
     $listingAmenity = ListingAmenity::where('type_id', $type_id)->first();
 
-    $hasAmenityIds = $listingAmenity ? json_decode($listingAmenity->amenities_id, true) : [];
+    $hasAmenityIds = $listingAmenity ? $listingAmenity->amenities_id : [];
 
     $type = Type::find($type_id);
 

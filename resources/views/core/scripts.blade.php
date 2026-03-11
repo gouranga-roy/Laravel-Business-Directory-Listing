@@ -25,6 +25,54 @@
                 .trigger('click');
         });
 
+        let selectedFiles = [];
+
+        $('#gallery').on('change', function() {
+            selectedFiles = selectedFiles.concat(Array.from(this.files));
+
+            displayPreviews();
+            updateFileInput();
+        });
+
+        function displayPreviews() {
+            $('#imageGallery').empty();
+
+            selectedFiles.forEach((file, index) => {
+                if (file.type.startsWith('image/')) {
+                    let reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        let imgWrapper = $('<div class="col-6 col-sm-4 col-md-3 col-lg-4 col-xl-3 col-xxl-2">').attr('data-index', index);
+                        let galleryDiv = $('<div class="gallery-img">');
+                        let img = $('<img>').attr('src', e.target.result);
+
+                        let removeBtn = $('<button class="remove-img remove-img-btn">').text('X').on('click', function() {
+                            imgWrapper.remove();
+                            const fileIndex = parseInt(imgWrapper.attr('data-index'));
+                            selectedFiles.splice(fileIndex, 1);
+                            displayPreviews();
+                            updateFileInput();
+                        });
+
+                        galleryDiv.append(img).append(removeBtn);
+                        imgWrapper.append(galleryDiv);
+                        $('#imageGallery').append(imgWrapper);
+                    };
+
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+
+        function updateFileInput() {
+            let dataTransfer = new DataTransfer();
+
+            selectedFiles.forEach(file => {
+                dataTransfer.items.add(file);
+            });
+            $('#gallery')[0].files = dataTransfer.files;
+        }
+
         $('input[type="file"]').on('change', function() {
             const preview = $(this).data('preview');
             loadImage(this, preview);

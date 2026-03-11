@@ -178,10 +178,10 @@ if (! function_exists('categoryCount')) {
     }
 }
 
-if (! function_exists('getAmenity')) {
-    function getAmenity($amenityId)
-    {
-        $getAmenity = Amenities::where('id', $amenityId)->first();
-        return $getAmenity;
-    }
-}
+// if (! function_exists('getAmenity')) {
+//     function getAmenity($amenityId)
+//     {
+//         $getAmenity = Amenities::where('id', $amenityId)->first();
+//         return $getAmenity;
+//     }
+// }

@@ -16,17 +16,12 @@
         <option value="email"> {{ translate('Email') }}</option>
         <option value="number"> {{ translate('Number') }}</option>
         <option value="textarea"> {{ translate('Textarea') }}</option>
-        <option value="select"> {{ translate('Select') }}</option>
+        <option value="select"> {{ translate('Dropdown') }}</option>
         <option value="checkbox"> {{ translate('Checkbox') }}</option>
         <option value="radio"> {{ translate('Radio') }}</option>
     </x-select>
 
-    <div class="mb-3 multiple-field-type" hidden="hidden">
-        <label for="multi_value_type" class="form-label">Insert your options </label>
-        <input type="text" class="multiTagChoice" name="multi_value_type[]" placeholder="Type and press enter">
-
-        {{-- <textarea name="multi_value_type" class="form-control" id="multi_value_type" placeholder="Example: Small, Medium, Large"></textarea> --}}
-    </div>
+    <div id="field-options-area"></div>
 
     <div class="mb-2 d-flex align-items-center gap-2 mb-16">
         <div class="form-switch dtable-switch p-0">
@@ -34,7 +29,6 @@
         </div>
         <label for="required-field">{{ translate('Required field') }}</label>
     </div>
-
 
     <div class="mb-3 d-flex align-items-center gap-2">
         <div class="form-switch dtable-switch p-0">
@@ -52,7 +46,7 @@
         @endforeach
     </x-select>
     <div class="text-end">
-        <button class="btn btn-dark rounded-6" type="submit">Create</button>
+        <button class="btn btn-dark rounded-6" type="submit">{{ translate('Create') }}</button>
     </div>
 
 

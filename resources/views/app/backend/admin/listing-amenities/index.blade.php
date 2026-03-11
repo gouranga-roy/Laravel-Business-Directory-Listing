@@ -35,7 +35,6 @@
                                     </span>
                                     <span class="count">{{ categoryCount($type->id) }}</span>
                                 </a>
-                                {{-- {{ $amenity_id }} --}}
                             </li>
                         @endforeach
                     </ul>

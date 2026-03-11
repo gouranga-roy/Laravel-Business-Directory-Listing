@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('label');
             $table->string('field');
-            $table->json('multi_value_type')->nullable();
+            $table->json('multi_value_option')->nullable();
             $table->boolean('is_required')->nullable();
             $table->boolean('status')->nullable();
             $table->string('placeholder')->nullable();

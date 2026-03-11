@@ -274,6 +274,7 @@
                 duplicateItemsAllowed: false,
                 addItems: true,
                 delimiter: ',',
+                placeholder: true,
                 paste: true,
             });
 

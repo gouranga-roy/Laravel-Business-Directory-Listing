@@ -16,52 +16,50 @@
         <div class="card">
             <div class="card-body">
 
-                <div class="row mb-20">
-                    <div class="col-12">
-                        <form action="#">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
+                <form action="{{ route('directoryList.store') }}" method="post" enctype="multipart/form-data" class="mb-20">
+                    @csrf
 
-                                        <label for="directoryType" class="form-label  required ">
-                                            {{ translate('Select List Type') }}
-                                        </label>
-                                        <x-select name="directoryType" placeholder="{{ translate('Select Type.') }}">
-                                            <option value=""></option>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="listing_id" class="form-label  required ">
+                                    {{ translate('Select List Type') }}
+                                </label>
+                                <x-select name="listing_id" placeholder="{{ translate('Select Type.') }}">
+                                    <option value=""></option>
 
-                                            @foreach ($list_type as $list)
-                                                <option value="{{ $list->id }}"> {{ $list->name }} </option>
-                                            @endforeach
-                                        </x-select>
+                                    @foreach ($list_type as $list)
+                                        <option value="{{ $list->id }}"> {{ $list->name }} </option>
+                                    @endforeach
+                                </x-select>
 
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-
-                                        <label for="categories" class="form-label required ">
-                                            {{ translate('Select List Categories') }}
-                                        </label>
-                                        <x-select name="categories" placeholder="{{ translate('Select categories.') }}">
-                                            <option value=""></option>
-                                        </x-select>
-
-                                    </div>
-                                </div>
                             </div>
-                        </form>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+
+                                <label for="category_id" class="form-label required">
+                                    {{ translate('Select List Categories') }}
+                                </label>
+                                <x-select name="category_id" placeholder="{{ translate('Select categories.') }}">
+                                    <option value=""></option>
+                                </x-select>
+
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="rounded-10 bg-light p-3">
+                    <div class="rounded-10 bg-light p-3">
 
-                    <div class="import-content"></div>
+                        <div class="import-content"></div>
 
-                    <div class="default-view">
-                        <span><i class="fi fi-br-plus"></i></span>
-                        <h4>{{ translate('Select Listing type from dropdown.') }}</h4>
+                        <div class="default-view">
+                            <span><i class="fi fi-br-plus"></i></span>
+                            <h4>{{ translate('Select Listing type from dropdown.') }}</h4>
+                        </div>
                     </div>
-                </div>
+
+                </form>
 
             </div>
         </div>
@@ -74,7 +72,7 @@
         'use strict';
 
         // Listing Directory
-        $(document).on('change', '#directoryType', function() {
+        $(document).on('change', '#listing_id', function() {
             let typeId = $(this).val();
 
             $.ajax({
@@ -92,7 +90,7 @@
                         option += `<option value="${category.value}">${category.label}</option>`;
                     });
 
-                    $("#categories").html(option);
+                    $("#category_id").html(option);
 
                     if (res.success) {
 

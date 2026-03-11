@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\CustomField;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class CustomFieldController extends Controller
 {
@@ -20,14 +19,17 @@ class CustomFieldController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'label'            => 'required|string|max:100',
-            'field'            => 'required|string|max:100',
-            'multi_value_type' => 'nullable|max:250',
-            'is_required'      => 'nullable|boolean',
-            'status'           => 'nullable|boolean',
-            'placeholder'      => 'nullable|string',
-            'listing_type'     => 'nullable|integer',
+            'label'        => 'required|string|max:100',
+            'field'        => 'required|string|max:100',
+            'options'      => 'nullable|required_if:type,options,checkbox,radio|array|max:250',
+            'options.*'    => 'required|string|max:250',
+            'is_required'  => 'nullable|boolean',
+            'status'       => 'nullable|boolean',
+            'placeholder'  => 'nullable|string',
+            'listing_type' => 'nullable|integer',
         ]);
+
+        $validated['options'] = explode(',', implode('', $validated['options'] ?? []));
 
         CustomField::create($validated);
 
@@ -39,17 +41,20 @@ class CustomFieldController extends Controller
         $customField = CustomField::firstWhere('id', $id);
 
         $validated = $request->validate([
-            'label'            => 'required|string|max:100',
-            'field'            => 'required|string|max:100',
-            'multi_value_type' => 'nullable|max:250',
-            'is_required'      => 'nullable|boolean',
-            'status'           => 'nullable|boolean',
-            'placeholder'      => 'nullable|string',
-            'listing_type'     => 'nullable|integer',
+            'label'        => 'required|string|max:100',
+            'field'        => 'required|string|max:100',
+            'options'      => 'nullable|required_if:type,options,checkbox,radio|array|max:250',
+            'options.*'    => 'required|string|max:250',
+            'is_required'  => 'nullable|boolean',
+            'status'       => 'nullable|boolean',
+            'placeholder'  => 'nullable|string',
+            'listing_type' => 'nullable|integer',
         ]);
 
         $validated['is_required'] = $request->has('is_required') ? 1 : null;
         $validated['status']      = $request->has('status') ? 1 : null;
+
+        $validated['options'] = explode(',', implode('', $validated['options'])) ?? [];
 
         $customField->update($validated);
 
@@ -82,26 +87,5 @@ class CustomFieldController extends Controller
         ]);
 
     }
-
-    // public function dummy(Request $request)
-    // {
-    //     $customFields = $request->cus_field;
-
-    //     try {
-    //         DB::transaction(function () {
-    //             $post = DemoTable::create();
-
-    //             CustomFieldValue::create([
-    //                 'type'  => 'listing',
-    //                 'id'    => $post->id,
-    //                 'value' => $customFields,
-    //             ]);
-    //         });
-    //     } catch (Exception $e) {
-    //         return redirect()->back()->with('error', translate('Something went wrong'));
-    //     }
-
-    //     return redirect()->back()->with('success', translate('Success'));
-    // }
 
 }

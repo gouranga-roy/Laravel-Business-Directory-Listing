@@ -6,6 +6,10 @@
 
     $field_data = CustomField::where('id', $id)->first();
 
+    $get_options = $field_data->options ?? [];
+
+    $options = implode(',', $get_options);
+
 @endphp
 
 <form action="{{ route('customField.update', $id) }}" method="POST">
@@ -15,19 +19,21 @@
 
     <x-select name="field" id="field_select" placeholder="{{ translate('Select Type.') }}" label="{{ translate('Field label type') }}">
         <option value=""></option>
-        <option value="text" {{ $field_data->field == 'text' ? 'selected' : '' }}> {{ translate('Text') }}</option>
-        <option value="email" {{ $field_data->field == 'email' ? 'selected' : '' }}> {{ translate('Email') }}</option>
-        <option value="number" {{ $field_data->field == 'number' ? 'selected' : '' }}> {{ translate('Number') }}</option>
-        <option value="textarea" {{ $field_data->field == 'textarea' ? 'selected' : '' }}> {{ translate('Textarea') }}</option>
-        <option value="select" {{ $field_data->field == 'select' ? 'selected' : '' }}> {{ translate('Select') }}</option>
-        <option value="checkbox" {{ $field_data->field == 'checkbox' ? 'selected' : '' }}> {{ translate('Checkbox') }}</option>
-        <option value="radio" {{ $field_data->field == 'radio' ? 'selected' : '' }}> {{ translate('Radio') }}</option>
+
+        <option value="text" @selected($field_data->field == 'text')> {{ translate('Text') }}</option>
+        <option value="email" @selected($field_data->field == 'email')> {{ translate('Email') }}</option>
+        <option value="number" @selected($field_data->field == 'number')> {{ translate('Number') }}</option>
+        <option value="textarea" @selected($field_data->field == 'textarea')> {{ translate('Textarea') }}</option>
+        <option value="select" @selected($field_data->field == 'select')> {{ translate('Select') }}</option>
+        <option value="checkbox" @selected($field_data->field == 'checkbox')> {{ translate('Checkbox') }}</option>
+        <option value="radio" @selected($field_data->field == 'radio')> {{ translate('Radio') }}</option>
     </x-select>
 
     @if ($field_data->field == 'select' || $field_data->field == 'checkbox' || $field_data->field == 'radio')
-        <div class="mb-3 multiple-field-type">
-            <label for="multi_value_type" class="form-label">Insert your options </label>
-            <input type="text" class="multiTagChoice" name="multi_value_type[]" placeholder="Type and press enter" value="{{ $field_data->multi_value_type[0] }}" />
+        <div class="mb-3 multiple-field-type" id="edit-field-type">
+            <label for="multi_value_option" class="form-label">{{ translate('Insert your options') }} </label>
+
+            <input type="text" class="multiTagChoice" name="options[]" placeholder="{{ translate('Type and press enter') }}" value="{{ implode(',', $field_data->options) }}" />
         </div>
     @endif
 
@@ -37,7 +43,6 @@
         </div>
         <label for="required-field">{{ translate('Required field') }}</label>
     </div>
-
 
     <div class="mb-3 d-flex align-items-center gap-2">
         <div class="form-switch dtable-switch p-0">
@@ -58,8 +63,6 @@
         <button class="btn btn-dark rounded-6" type="submit">Update</button>
     </div>
 
-
 </form>
-
 
 @include('core::initJs')
