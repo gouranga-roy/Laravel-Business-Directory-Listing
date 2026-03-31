@@ -12,7 +12,7 @@ class CustomField extends Model
         'options' => 'array',
     ];
 
-    public function types()
+    public function type()
     {
         return $this->belongsTo(Type::class, 'listing_type');
     }

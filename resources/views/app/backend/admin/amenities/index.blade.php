@@ -22,7 +22,7 @@
                                 <figure>
                                     <img src="{{ getImage($amenities->image) }}" alt="{{ translate('') }}">
                                 </figure>
-                                <x-dropdown>
+                                <x-dropdown class="actionBtn">
                                     <x-drop-modal :title="translate('Edit')" :url="path(['admin::amenities.edit', 'slug' => $amenities->slug])" />
                                     <x-drop-delete :title="translate('Delete')" :url="route('amenities.delete', $amenities->slug)" />
                                 </x-dropdown>
@@ -31,9 +31,9 @@
                             <div class="amenities-text">
                                 <h4>{{ $amenities->title }}</h4>
                                 @if ($amenities->status == 1)
-                                    <span class="badge text-bg-primary p-2">Active</span>
+                                    <span class="badge text-bg-primary p-2">{{ translate('Active') }}</span>
                                 @else
-                                    <span class="badge text-bg-danger p-2">Inactive</span>
+                                    <span class="badge text-bg-danger p-2">{{ translate('Inactive') }}</span>
                                 @endif
                             </div>
                         </div>

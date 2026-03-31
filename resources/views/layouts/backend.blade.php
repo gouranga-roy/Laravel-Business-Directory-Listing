@@ -49,6 +49,7 @@
     <script src="{{ asset('assets/backend/js/bootstrap-slider.min.js') }}"></script>
     <script src="{{ asset('assets/backend/icon-picker/fontawesome-iconpicker.min.js') }}"></script>
     <script src="{{ asset('assets/backend/js/choices.min.js') }}"></script>
+    <script src="{{ asset('assets/backend/js/jquery.form.min.js') }}"></script>
     <script src="{{ asset('assets/backend/js/summernote-lite.min.js') }}"></script>
     <script src="{{ asset('assets/backend/js/apexcharts.min.js') }}"></script>
     <script src="{{ asset('assets/backend/js/chart.js') }}"></script>

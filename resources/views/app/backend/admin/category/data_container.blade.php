@@ -18,7 +18,7 @@
                     <div class="categories-item">
 
                         <div class="category-action">
-                            <x-dropdown>
+                            <x-dropdown class="actionBtn">
                                 <x-drop-modal :title="translate('Add SubCategory')" :url="path(['admin::category.sub_category.create', 'category_id' => $category->id])" />
                                 <x-drop-modal :title="translate('Edit')" :url="path(['admin::category.edit', 'slug' => $category->slug])" />
                                 <x-drop-delete :title="translate('Delete')" :url="route('category.delete', $category->slug)" />

@@ -11,16 +11,16 @@
 
     <x-input type="text" name="title" label="{{ translate('Name') }}" value=" {{ $amenities->title }} " required />
 
-    {{-- @if ($categories->count() > 0) --}}
-    <x-select name="parent_id" label="{{ translate('Category Parent') }}">
-        <option></option>
-        <option value="0">No parent</option>
-        {{-- @foreach ($categories as $category) --}}
-        <option value="0">Item One</option>
-        <option value="0">Item Two</option>
-        {{-- @endforeach --}}
-    </x-select>
-    {{-- @endif --}}
+    {{-- @if ($categories->count() > 0)
+        <x-select name="parent_id" label="{{ translate('Category Parent') }}">
+            <option></option>
+            <option value="0">No parent</option>
+            @foreach ($categories as $category)
+                <option value="0">Item One</option>
+                <option value="0">Item Two</option>
+            @endforeach
+        </x-select>
+    @endif --}}
 
     <x-input-icon type="text" label="Pic Your Icon" name="icon" id="icon-picker" class="icon-picker" value=" {{ $amenities->icon }} " />
 

@@ -19,4 +19,21 @@ class Type extends Model
     {
         return $this->hasMany(CustomField::class);
     }
+
+    public function categories()
+    {
+        return $this->hasMany(Category::class, 'type_id', 'id');
+    }
+
+    public function directories()
+    {
+        return $this->hasManyThrough(
+            DirectoryList::class,
+            Category::class,
+            'type_id',
+            'category_id',
+            'id',
+            'id',
+        );
+    }
 }

@@ -19,7 +19,7 @@
                             <a class="status" href="#">Inactive</a>
                         @endif
 
-                        <x-dropdown>
+                        <x-dropdown class="actionBtn">
                             <x-drop-modal :title="translate('Edit')" :url="path(['backend::admin.custom-type.edit', 'slug' => $type->slug])" />
                             <x-drop-delete :title="translate('Delete')" :url="route('type.delete', $type->slug)" />
                         </x-dropdown>

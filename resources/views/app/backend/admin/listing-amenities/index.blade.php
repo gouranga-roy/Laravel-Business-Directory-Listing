@@ -43,5 +43,6 @@
             @include('admin::listing-amenities.data_container', ['slug' => $slug])
         </div>
 
+
     </div>
 @endsection

@@ -56,6 +56,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('directory-list/listing/cities', 'searchCities')->name('directoryList.cities');
 
         Route::post('directory-list/store', 'store')->name('directoryList.store');
+        Route::get('directory-list/{slug?}/edit', 'edit')->name('directoryList.edit');
+        Route::post('directory-list/update', 'update')->name('directoryList.update');
+        Route::delete('directory-list/delete', 'delete')->name('directoryList.delete');
     });
 
     // Custom Filed

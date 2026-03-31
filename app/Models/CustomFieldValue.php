@@ -13,9 +13,9 @@ class CustomFieldValue extends Model
         'data' => 'array',
     ];
 
-    public function directory()
+    public function reference()
     {
-        return $this->hasMany(DirectoryList::class);
+        return $this->morphTo();
     }
 
 }

@@ -42,7 +42,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <x-dropdown>
+                                    <x-dropdown class="actionBtn">
                                         <x-drop-modal :title="translate('Edit')" :url="path(['admin::listing-amenities.edit', 'type_id' => $type_id, 'slug' => $slug])" />
                                         <x-drop-delete :title="translate('Delete')" :url="route('listAmenities.delete', $slug)" />
                                     </x-dropdown>

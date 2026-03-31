@@ -13,9 +13,14 @@ class Category extends Model
         return $this->hasMany(Category::class, 'parent_id');
     }
 
+    public function type()
+    {
+        return $this->belongsTo(Type::class, 'type_id', 'id');
+    }
+
     public function directory()
     {
-        return $this->hasMany(DirectoryList::class, 'category_id');
+        return $this->hasMany(DirectoryList::class, 'category_id', 'id');
     }
 
 }

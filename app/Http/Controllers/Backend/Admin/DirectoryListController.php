@@ -20,7 +20,12 @@ class DirectoryListController extends Controller
     public function index()
     {
         $page_data['list_type'] = Type::get();
-        $page_data['listsAll']  = DirectoryList::with('category')->get();
+        $page_data['lists']     = DirectoryList::with(['category', 'custom'])
+            ->whereHas('type', function ($q) {
+                $q->where('types.slug', request()->route()->parameter('slug'));
+            })
+            ->orderByDesc('id')
+            ->paginate(10);
 
         return view('admin::directory-list.index', $page_data);
     }
@@ -149,6 +154,16 @@ class DirectoryListController extends Controller
         } catch (Exception $e) {
             return redirect()->back()->with('error', translate('Something went wrong'));
         }
+
+    }
+
+    public function edit($slug)
+    {
+
+        $page_data['directoryList'] = DirectoryList::where('slug', $slug)->with(['category', 'type'])->first();
+        $page_data['categories']    = Category::get();
+
+        return view('admin::directory-list.edit', $page_data);
 
     }
 }

@@ -78,7 +78,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <x-dropdown>
+                                            <x-dropdown class="actionBtn">
                                                 <x-drop-modal :title="translate('Edit')" :url="path(['backend::admin.custom-field.edit', 'id' => $field->id])" />
                                                 <x-drop-delete :title="translate('Delete')" :url="route('customField.delete', $field->id)" />
                                             </x-dropdown>

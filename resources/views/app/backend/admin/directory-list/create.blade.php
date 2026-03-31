@@ -9,14 +9,14 @@
                 <h4 class="fs-20 text-secondary mb-0">{{ translate('Create Listing') }}</h4>
             </div>
             <div class="col-lg-6 col-md-6 text-end">
-                <a href="{{ route('directoryList') }}" class="btn btn-sm btn-dark">{{ translate('Back Directory') }}</a>
+                <a href="{{ route('directoryList') }}" class="btn btn-sm btn-dark">{{ translate('Back Listing') }}</a>
             </div>
         </div>
 
         <div class="card">
             <div class="card-body">
 
-                <form action="{{ route('directoryList.store') }}" method="post" enctype="multipart/form-data" class="mb-20">
+                <form action="{{ route('directoryList.store') }}" method="post" class="ajaxForm" enctype="multipart/form-data" class="mb-20">
                     @csrf
 
                     <div class="row">

@@ -701,7 +701,8 @@ span[class="fi-rr-"]:before {
 
 /* Sidebar */
 .sidebar {
-    background: var(--white-color);
+    background: #dfe4ea;
+    /* background: var(--white-color); */
     width: 256px;
     height: 100vh;
     padding: 12px;
@@ -1071,7 +1072,8 @@ span[class="fi-rr-"]:before {
 
 /* Top Header */
 .main-header {
-    background: var(--white-color);
+    /* background: var(--white-color); */
+    background: #dfe4ea;
     height: 60px;
     padding: 10px 24px;
     border-bottom: 1px solid var(--border-color);
@@ -3992,16 +3994,19 @@ span[class="fi-rr-"]:before {
     background: var(--primary-color);
 }
 
+.actionBtn .dropdown-toggle,
 .type-status .dropdown-toggle {
     border: 0 !important;
     padding: 0 !important;
     transform: rotate(-90deg);
 }
 
+.actionBtn .dropdown-toggle::after,
 .type-status .dropdown-toggle::after {
     display: none !important;
 }
 
+.actionBtn .dropdown-toggle svg,
 .type-status .dropdown-toggle svg {
     width: 26px !important;
     height: 26px !important;
@@ -4428,9 +4433,6 @@ span[class="fi-rr-"]:before {
     color: red;
 }
 
-
-
-
 /* -- Image gallery -- */
 .remove-img-btn {
     position: absolute;
@@ -4464,4 +4466,28 @@ span[class="fi-rr-"]:before {
     height: 100%;
     object-fit: cover;
     object-position: center;
+}
+
+
+/* -- Table Custom Button -- */
+.listCustomAction .dropdown-toggle {
+    border: 0 !important;
+    padding: 0 !important;
+    transform: rotate(-90deg);
+}
+
+.listCustomAction .dropdown-toggle svg {
+    width: 26px !important;
+    height: 26px !important;
+}
+
+.listCustomAction .dropdown-toggle::after {
+    display: none;
+    position: relative;
+}
+
+.listCustomAction .dropdown-menu li a {
+    display: inline-block;
+    width: 100%;
+    padding: 6px 10px;
 }

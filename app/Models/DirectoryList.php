@@ -26,14 +26,30 @@ class DirectoryList extends Model
         'status',
     ];
 
+    protected $casts = [
+        'data' => 'array',
+    ];
+
     public function listing()
     {
-        return $this->belongsTo(DirectoryList::class, 'listing_id', 'id');
+        return $this->belongsTo(DirectoryList::class);
     }
 
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+
+    public function type()
+    {
+        return $this->hasOneThrough(
+            Type::class,
+            Category::class,
+            'id',
+            'id',
+            'category_id',
+            'type_id'
+        );
     }
 
     public function country()
@@ -46,8 +62,13 @@ class DirectoryList extends Model
         return $this->belongsTo(CustomField::class, 'reference_id', 'id');
     }
 
+    public function custom()
+    {
+        return $this->morphOne(CustomFieldValue::class, 'reference');
+    }
+
     public function gallery()
     {
-        return $this->hasMany(DirectoryListGallery::class, 'listing_id', 'id');
+        return $this->hasMany(DirectoryListGallery::class);
     }
 }
