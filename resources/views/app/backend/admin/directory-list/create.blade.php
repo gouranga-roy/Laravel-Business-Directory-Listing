@@ -22,10 +22,10 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="listing_id" class="form-label  required ">
+                                <label for="type_id" class="form-label  required ">
                                     {{ translate('Select List Type') }}
                                 </label>
-                                <x-select name="listing_id" placeholder="{{ translate('Select Type.') }}">
+                                <x-select name="type_id" placeholder="{{ translate('Select Type.') }}">
                                     <option value=""></option>
 
                                     @foreach ($list_type as $list)
@@ -72,7 +72,7 @@
         'use strict';
 
         // Listing Directory
-        $(document).on('change', '#listing_id', function() {
+        $(document).on('change', '#type_id', function() {
             let typeId = $(this).val();
 
             $.ajax({

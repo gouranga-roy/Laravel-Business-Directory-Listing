@@ -24,7 +24,7 @@
                     <div class="d-flex align-items-center gap-2 column-gap-4 flex-wrap">
                         @foreach ($field->options ?? [] as $option)
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{ $option }}" name="custom_fields[{{ $field->id }}]" id="custom_check_{{ $option . '_' . $loop->iteration }}" @if ($loop->first) checked @endif>
+                                <input class="form-check-input" type="checkbox" value="{{ $option }}" name="custom_fields[{{ $field->id }}]" id="custom_check_{{ $option . '_' . $loop->iteration }}">
                                 <label class="form-check-label text-capitalize" for="custom_check_{{ $option . '_' . $loop->iteration }}">
                                     {{ $option }}
                                 </label>
@@ -40,7 +40,7 @@
 
                         @foreach ($field->options ?? [] as $option)
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" value="{{ $option }}" name="custom_fields[{{ $field->id }}]" id="custom_radio{{ $loop->iteration }}" @if ($loop->first) checked @endif>
+                                <input class="form-check-input" type="radio" value="{{ $option }}" name="custom_fields[{{ $field->id }}]" id="custom_radio{{ $loop->iteration }}">
                                 <label class="form-check-label" for="custom_radio{{ $loop->iteration }}">
                                     {{ $option }}
                                 </label>

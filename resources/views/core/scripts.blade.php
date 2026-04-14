@@ -160,13 +160,17 @@
         $(location).attr('href', url);
     }
 
-    function ajaxCall(route, method = "GET", data = {}) {
+    function ajaxCall(route, method = "GET", data = {}, callback = null) {
         $.ajax({
             type: method,
             url: route,
             data: data,
             success: function(response) {
                 distributeServerResponse(response);
+
+                if (typeof callback === "function") {
+                    callback(null, response);
+                }
             },
             error: function(xhr, status, error) {
                 distributeServerResponse({
@@ -179,6 +183,28 @@
         });
     }
 
+    function ajaxPost(route, data = {}, callback = null) {
+        if (typeof data === "function") {
+            callback = data;
+            data = {};
+        }
+
+        data = data || {};
+
+        ajaxCall(route, "POST", data, callback);
+    }
+
+    function ajaxGet(route, data = {}, callback = null) {
+        if (typeof data === "function") {
+            callback = data;
+            data = {};
+        }
+
+        data = data || {};
+
+        ajaxCall(route, "GET", data, callback);
+    }
+
     function distributeServerResponse(response) {
         // Reload or redirect if needed
         if (response.reload) location.reload();
@@ -189,6 +215,7 @@
         if (response.hide) $(response.hide).hide();
         if (response.fadeIn) $(response.fadeIn).fadeIn();
         if (response.fadeOut) $(response.fadeOut).fadeOut();
+        if (response.remove) $(response.remove).remove();
 
         // Update element content
         if (response.html) $(response.html.elem).empty(response.append?.empty || false).html(response.html.content);

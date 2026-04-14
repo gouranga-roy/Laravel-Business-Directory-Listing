@@ -11,7 +11,7 @@ class CustomFieldController extends Controller
 {
     public function index()
     {
-        $page_data['fieldAll'] = CustomField::with('types')->get();
+        $page_data['fieldAll'] = CustomField::with('type')->get();
 
         return view('admin::custom-field.index', $page_data);
     }

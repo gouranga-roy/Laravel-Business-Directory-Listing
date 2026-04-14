@@ -69,6 +69,6 @@ class DirectoryList extends Model
 
     public function gallery()
     {
-        return $this->hasMany(DirectoryListGallery::class);
+        return $this->hasMany(DirectoryListGallery::class, 'listing_id', 'id');
     }
 }

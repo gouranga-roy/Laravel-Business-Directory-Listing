@@ -122,16 +122,16 @@
     </div>
 
     <div class="tab-pane fade" id="seo-tab-pane" role="tabpanel" aria-labelledby="seo-tab" tabindex="0">
-        <x-input type="text" name="meta_title" label="Meta Title" placeholder="Enter meta title" />
+        <x-input type="text" name="meta_title" label="Meta Title" placeholder="Enter meta title" value="Meta title" />
 
         <div class="mb-3">
             <label for="multi_value_option" class="form-label"> {{ translate('Meta keywords') }}</label>
-            <input type="text" class="multiTagChoice" name="keywords[]" data-placeholder="{{ translate('Type and press enter') }}">
+            <input type="text" class="multiTagChoice" name="keywords[]" data-placeholder="{{ translate('Type and press enter') }}" value="meta-keyword">
         </div>
 
-        <x-textarea name="meta_description" label="Meta Description" row="" placeholder="{{ translate('Enter meta description') }}"></x-textarea>
-        <x-input type="text" name="og_title" label="OG Title" placeholder="{{ translate('Enter og title') }}" />
-        <x-textarea name="og_description" label="Og Description" row="4" placeholder="{{ translate('Enter og description') }}"></x-textarea>
+        <x-textarea name="meta_description" label="Meta Description" row="" placeholder="{{ translate('Enter meta description') }}">Meta description</x-textarea>
+        <x-input type="text" name="og_title" label="OG Title" placeholder="{{ translate('Enter og title') }}" value="Og title" />
+        <x-textarea name="og_description" label="Og Description" row="4" placeholder="{{ translate('Enter og description') }}">Og description</x-textarea>
         <div class="mb-3">
             <label class="form-label">Thumbnail</label>
             <input type="file" id="thumbnail" name="sco_image" accept="image/*" hidden data-preview="#preview-product-thumbnail">

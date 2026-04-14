@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class DirectoryListGallery extends Model
 {
@@ -15,4 +16,9 @@ class DirectoryListGallery extends Model
     protected $casts = [
         'path' => 'array',
     ];
+
+    public function listing()
+    {
+        return $this->belongsTo(DirectoryList::class, 'id', 'listing_id');
+    }
 }

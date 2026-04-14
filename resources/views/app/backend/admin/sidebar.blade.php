@@ -16,16 +16,20 @@
 
                 <nav>
                     <ul>
+
                         <li class="caption">
                             <label>{{ translate('Main') }}</label>
                         </li>
+
                         <li class="active">
                             <a href="#">
                                 <span><i class="fi fi-rs-category"></i></span>
                                 <span class="text">{{ translate('Dashboard') }}</span>
                             </a>
                         </li>
+
                         <li class="subMenu_dropdown {{ request()->is('directory-list*') ? 'childShow' : '' }}">
+
                             <a href="javascript:void(0)">
                                 <span>
                                     <i class="fi fi-rr-folder-times"></i>
@@ -37,6 +41,7 @@
                                     </svg>
                                 </span>
                             </a>
+
                             <ul class="sub-menu">
                                 <li>
                                     <a href=" {{ route('directoryList') }} ">
@@ -44,8 +49,11 @@
                                     </a>
                                 </li>
                             </ul>
+
                         </li>
+
                         <li class="subMenu_dropdown {{ request()->is('type*') ? 'childShow' : '' }}">
+
                             <a href="javascript:void();">
                                 <span>
                                     <i class="fi fi-rr-ftp"></i>
@@ -57,6 +65,7 @@
                                     </svg>
                                 </span>
                             </a>
+
                             <ul class="sub-menu">
                                 <li>
                                     <a href="{{ route('type') }}">
@@ -64,8 +73,11 @@
                                     </a>
                                 </li>
                             </ul>
+
                         </li>
+
                         <li class="subMenu_dropdown {{ request()->is('categories*') ? 'childShow' : '' }}">
+
                             <a href="javascript:void();">
                                 <span>
                                     <i class="fi fi-rr-settings-sliders"></i>
@@ -84,8 +96,11 @@
                                     </a>
                                 </li>
                             </ul>
+
                         </li>
+
                         <li class="subMenu_dropdown {{ request()->is('amenities*') ? 'childShow' : '' }}">
+
                             <a href="javascript:void();">
                                 <span>
                                     <i class="fi fi-rr-magic-wand"></i>
@@ -97,6 +112,7 @@
                                     </svg>
                                 </span>
                             </a>
+
                             <ul class="sub-menu">
                                 <li>
                                     <a href="{{ route('amenities') }}">
@@ -104,8 +120,11 @@
                                     </a>
                                 </li>
                             </ul>
+
                         </li>
+
                         <li class="subMenu_dropdown {{ request()->is('list-amenities*') ? 'childShow' : '' }}">
+
                             <a href="javascript:void();">
                                 <span>
                                     <i class="fi fi-rr-parachute-box"></i>
@@ -117,6 +136,7 @@
                                     </svg>
                                 </span>
                             </a>
+
                             <ul class="sub-menu">
                                 <li>
                                     <a href="{{ route('listAmenities') }}">
@@ -124,8 +144,11 @@
                                     </a>
                                 </li>
                             </ul>
+
                         </li>
+
                         <li class="subMenu_dropdown {{ request()->is('custom-field*') ? 'childShow' : '' }}">
+
                             <a href="javascript:void();">
                                 <span>
                                     <i class="fi fi-rs-customize-edit"></i>
@@ -137,6 +160,7 @@
                                     </svg>
                                 </span>
                             </a>
+
                             <ul class="sub-menu">
                                 <li>
                                     <a href="{{ route('customField') }}">
@@ -144,6 +168,46 @@
                                     </a>
                                 </li>
                             </ul>
+
+                        </li>
+
+                        <li class="subMenu_dropdown {{ request()->is('blog*') ? 'childShow' : '' }}">
+
+                            <a href="javascript:void();">
+                                <span>
+                                    <i class="fi fi-rr-settings-sliders"></i>
+                                </span>
+                                <span class="text">{{ translate('Manage Blog') }}</span>
+                                <span class="menu-icon">
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2.625 8.75L7 4.375L11.375 8.75" stroke="#7A7C83" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                            </a>
+
+                            <ul class="sub-menu">
+
+                                <li>
+
+                                    <a href="{{ route('blogCategory.index') }}">
+                                        {{ translate('Manage Category') }}
+                                    </a>
+
+                                    <a href="{{ route('blog.create') }}">
+                                        {{ translate('Create Blog') }}
+                                    </a>
+
+                                    <a href="{{ route('blog.index') }}">
+                                        {{ translate('Blog List') }}
+                                    </a>
+
+                                    <a href="{{ route('blog.index') }}">
+                                        {{ translate('Comment List') }}
+                                    </a>
+                                </li>
+
+                            </ul>
+
                         </li>
 
                         <li class="caption mt-2 mb-2">

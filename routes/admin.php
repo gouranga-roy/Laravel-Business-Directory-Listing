@@ -1,5 +1,7 @@
 <?php
 use App\Http\Controllers\Backend\Admin\AmenitiesController;
+use App\Http\Controllers\Backend\Admin\BlogCategoryController;
+use App\Http\Controllers\Backend\Admin\BlogController;
 use App\Http\Controllers\Backend\Admin\CategoryController;
 use App\Http\Controllers\Backend\Admin\CustomFieldController;
 use App\Http\Controllers\Backend\Admin\DirectoryListController;
@@ -57,8 +59,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
         Route::post('directory-list/store', 'store')->name('directoryList.store');
         Route::get('directory-list/{slug?}/edit', 'edit')->name('directoryList.edit');
-        Route::post('directory-list/update', 'update')->name('directoryList.update');
+        Route::put('directory-list/update', 'update')->name('directoryList.update');
         Route::delete('directory-list/delete', 'delete')->name('directoryList.delete');
+
+        Route::post('directory-list/gallery/delete/{id}', 'galleryDelete')->name('directoryList.gallery.delete');
+
     });
 
     // Custom Filed
@@ -66,9 +71,27 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('custom-field', 'index')->name('customField');
         Route::post('custom-field/store', 'store')->name('customField.store');
         Route::post('custom-field/{id}/update', 'update')->name('customField.update');
-        Route::delete('custom-field//{id}/delete', 'delete')->name('customField.delete');
+        Route::delete('custom-field/{id}/delete', 'delete')->name('customField.delete');
 
         Route::post('custom-field/status-update', 'statusUpdate')->name('customField.status');
+    });
+
+    // Blogs Category
+    Route::controller(BlogCategoryController::class)->group(function () {
+        Route::get('blog-category', 'index')->name('blogCategory.index');
+        Route::post('blog-category/store', 'store')->name('blogCategory.store');
+        Route::put('blog-category/update', 'update')->name('blogCategory.update');
+        Route::delete('blog-category/{id}/delete', 'delete')->name('blogCategory.delete');
+    });
+
+    // Blogs
+    Route::controller(BlogController::class)->group(function () {
+        Route::get('blog', 'index')->name('blog.index');
+        Route::get('blog/create', 'create')->name('blog.create');
+        Route::post('blog/store', 'store')->name('blog.store');
+        Route::get('blog/{slug}/edit', 'edit')->name('blog.edit');
+        Route::put('blog/update', 'update')->name('blog.update');
+        Route::delete('blog/delete', 'delete')->name('blog.delete');
     });
 
 });

@@ -4182,7 +4182,7 @@ span[class="fi-rr-"]:before {
     position: relative;
     transition: 0.3s;
     padding: 8px;
-    border: 1px solid var(--borderColor);
+    border: 1px dashed var(--border-color);
 }
 
 .image-upload-area::before {
@@ -4490,4 +4490,11 @@ span[class="fi-rr-"]:before {
     display: inline-block;
     width: 100%;
     padding: 6px 10px;
+}
+
+
+.blogCategory table img {
+    max-width: 80px;
+    width: 100%;
+    object-fit: cover;
 }

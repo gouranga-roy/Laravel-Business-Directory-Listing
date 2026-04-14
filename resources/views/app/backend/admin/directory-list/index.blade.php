@@ -38,11 +38,20 @@
                                 <th scope="col"> {{ translate('Category') }}</th>
 
                                 @php
+                                    $slug = request()->route()->parameter('slug');
+
+                                    $typeId = \App\Models\Type::orderBy('id')->value('id');
+
                                     $fields = App\Models\CustomField::where('status', '1')
-                                        ->whereHas('type', function ($q) {
-                                            $q->where('slug', request()->route()->parameter('slug'));
+                                        ->whereHas('type', function ($q) use ($slug, $typeId) {
+                                            if ($slug) {
+                                                $q->where('slug', $slug);
+                                            } else {
+                                                $q->where('id', $typeId);
+                                            }
                                         })
                                         ->get();
+
                                 @endphp
 
                                 @foreach ($fields as $field)

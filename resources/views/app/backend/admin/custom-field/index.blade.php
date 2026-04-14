@@ -71,7 +71,7 @@
                                             {{ $field->label }} <span class="is_required">{{ $field->is_required == 1 ? '*' : '' }}</span>
                                         </td>
                                         <td>{{ $field->field }}</td>
-                                        <td>{{ $field->types->name }}</td>
+                                        <td>{{ $field->type->name }}</td>
                                         <td>
                                             <div class="form-switch dtable-switch p-0">
                                                 <input class="form-check-input fieldSwitcher" type="checkbox" role="switch" id="dswitch4" {{ $field->status == 1 ? 'checked' : '' }} data-id="{{ $field->id }}">
