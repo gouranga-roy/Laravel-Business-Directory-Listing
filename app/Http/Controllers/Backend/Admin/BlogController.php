@@ -70,9 +70,6 @@ class BlogController extends Controller
 
         $blog = Blog::findOrFail($request->blog_id);
 
-        $newSlug = slugify($request->title);
-        $request->merge(['slug' => $newSlug]);
-
         $validated = $request->validate([
             'title'           => 'required|string|max:255',
             'slug'            => 'required|string|max:255|unique:blogs,slug,' . $blog->id,
@@ -87,6 +84,8 @@ class BlogController extends Controller
             'seo_description' => 'nullable|string',
         ]);
 
+        $validated['slug'] = $request->merge(['slug' => slugify($request->title)]);
+
         if ($request->hasFile('image')) {
             $validated['image'] = FileUploader::upload($request->file('image'), "blog/image");
         }
@@ -95,6 +94,15 @@ class BlogController extends Controller
 
         return goBack('success', 'Blog update successfully!');
 
+    }
+
+    public function delete($id)
+    {
+        $blogDelete = Blog::findOrFail($id);
+
+        $blogDelete->delete();
+
+        return goBack('success', 'Blog deleted successfully1');
     }
 
 }

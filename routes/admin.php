@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\Admin\BlogController;
 use App\Http\Controllers\Backend\Admin\CategoryController;
 use App\Http\Controllers\Backend\Admin\CustomFieldController;
 use App\Http\Controllers\Backend\Admin\DirectoryListController;
+use App\Http\Controllers\Backend\Admin\ProfileController;
 use App\Http\Controllers\Backend\Admin\TypeController;
 use App\Http\Controllers\Backend\Admin\UserController;
 use App\Models\Category;
@@ -84,14 +85,20 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::delete('blog-category/{id}/delete', 'delete')->name('blogCategory.delete');
     });
 
-    // Blogs
+    // Blogs Controller
     Route::controller(BlogController::class)->group(function () {
         Route::get('blog', 'index')->name('blog.index');
         Route::get('blog/create', 'create')->name('blog.create');
         Route::post('blog/store', 'store')->name('blog.store');
         Route::get('blog/{slug}/edit', 'edit')->name('blog.edit');
         Route::put('blog/update', 'update')->name('blog.update');
-        Route::delete('blog/delete', 'delete')->name('blog.delete');
+        Route::delete('blog/{id}/delete', 'delete')->name('blog.delete');
+    });
+
+    // Profile Controller
+    Route::controller(ProfileController::class)->group(function () {
+        Route::get('user/profile', 'index')->name('profile.index');
+        Route::put('user/profile', 'update')->named('profile.update');
     });
 
 });

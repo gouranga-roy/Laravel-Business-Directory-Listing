@@ -210,9 +210,19 @@
 
                         </li>
 
+                        <li>
+                            <a href="{{ route('profile.index') }}">
+                                <span>
+                                    <i class="fi fi-rr-circle-user"></i>
+                                </span>
+                                <span class="text">{{ translate('Profile') }}</span>
+                            </a>
+                        </li>
+
                         <li class="caption mt-2 mb-2">
                             <label>Other</label>
                         </li>
+
                         <li>
                             <a href="#">
                                 <span>

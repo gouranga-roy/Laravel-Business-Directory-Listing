@@ -7,7 +7,7 @@
         <h4>Dashboard</h4>
     </div>
     <div class="search-bar">
-        <form action="">
+        <form action="" class="mb-0">
             <input type="search" class="form-control" id="search-bar" placeholder="Search">
             <label for="search-bar">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -4498,3 +4498,17 @@ span[class="fi-rr-"]:before {
     width: 100%;
     object-fit: cover;
 }
+
+.photoArea {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 14px;
+    padding: 6px;
+}
+
+.photoArea img {
+    max-width: 100%;
+    height: auto;
+}

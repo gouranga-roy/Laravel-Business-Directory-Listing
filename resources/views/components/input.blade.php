@@ -1,8 +1,11 @@
-@props(['type' => 'text', 'name', 'id' => null, 'label' => null, 'autocomplete' => null, 'note' => null])
+@props(['type' => 'text', 'name', 'id' => null, 'label' => null, 'autocomplete' => null, 'note' => null, 'icon' => null])
 
 <div class="mb-3 @if ($attributes->has('class')) {{ $attributes->get('class') }} @endif">
     @if ($label)
         <label for="{{ $id ?? $name }}" class="form-label @if ($attributes->has('required')) required @endif">
+            @if ($icon)
+                <i class="{{ 's-icon ' . $icon }}"></i>
+            @endif
             {{ $label }} <small class="text-muted">{{ $note }}</small>
         </label>
     @endif
